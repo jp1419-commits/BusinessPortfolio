@@ -1,0 +1,95 @@
+{
+  "company": {
+    "name": "Joshua Paulo",
+    "tagline": "Your Innovation Partner, one line of code at a time.",
+    "logo": "https://scontent.fmnl3-4.fna.fbcdn.net/v/t39.30808-6/512951512_24397316326519482_4970407704876603403_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEGCOG5MQ8DoBWOgaoIO17QHfd0YhtvzMUd93RiG2_MxWyFEG4ulz_BOJA3PfDbmClI8mzurMTyym0Tr3IWTk0e&_nc_ohc=9X1ZUCrrpK8Q7kNvwH0Zwee&_nc_oc=AdkOznt7lUjBcDlUUApSZbMIjYM2wlxUt7PrK-fPqBC1rE5io7tBzzuePWzT66Wwa1k&_nc_zt=23&_nc_ht=scontent.fmnl3-4.fna&_nc_gid=-w4c4i7zpb1HWXjeu5oeAw&oh=00_Afd2b_RX0jJJRnMEFQuh0WnBGvn0HJ0vMZoNcFsBaBw7aw&oe=68E7382C"
+   },
+  "about": {
+    "mission": "Driving human-centric innovation and efficiency by providing end-to-end solutions: Software, IT Staffing, Services, and Project Management.",
+    "vision": "To unlock global potential. We aim to be the definitive leader in digital transformation, providing the technology that powers organizational success..",
+    "values": ["Human-centric", "Customer focus", "Excellence"]
+  },
+  "services": [
+    {
+      "title": "Web & Desktop App Development",
+      "description": "Custom web applications built with modern frameworks like Angular, React, Vue.js, .NET for optimal performance and user experience.",
+      "icon": "🌐"
+    },
+    {
+      "title": "Mobile Applications",
+      "description": "Cross-platform mobile apps with seamless user experience using Xamarin, Angular, React Native, Flutter, and native development.",
+      "icon": "📱"
+    },
+    {
+      "title": "Cloud Solutions",
+      "description": "Support you with scalable and secure cloud infrastructure setup and support using AWS, Azure, and Google Cloud Platform.",
+      "icon": "☁️"
+    },
+    {
+      "title": "IT Operations & Maintenance Support",
+      "description": "Comprehensive IT support services including system monitoring, troubleshooting, and regular maintenance to ensure optimal performance.",
+      "icon": "⚙️"
+    },
+    {
+      "title": "IT Project Management",
+      "description": "End-to-end project management services ensuring timely delivery, budget adherence, and quality outcomes using Waterfall, Agile and Scrum methodologies.",
+      "icon": "📊"
+    },
+    {
+      "title": "IT Consulting",
+      "description": "Strategic IT consulting to align technology initiatives with business goals, improve processes, and drive innovation.",
+      "icon": "💡"
+    }
+  ],
+  "projects": [
+    {
+      "title": "E-commerce Platform",
+      "description": "End-to-end online shopping solution with payment integration, inventory management, and analytics dashboard.",
+      "tech": ["Angular", "Node.js", "MongoDB", "Stripe"],
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      "link": "https://github.com/techforge/ecommerce"
+    },
+    {
+      "title": "HR Management System",
+      "description": "A comprehensive web-based HR platform for employee management, payroll processing, and performance tracking.",
+      "tech": ["React", "Django", "PostgreSQL", "Redis"],
+      "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      "link": "https://github.com/techforge/hrms"
+    },
+    {
+      "title": "Healthcare Management App",
+      "description": "Mobile application for healthcare providers to manage patient records, appointments, and medical history.",
+      "tech": ["Flutter", "Firebase", "Node.js", "MongoDB"],
+      "image": "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      "link": "https://github.com/techforge/healthcare"
+    },
+    {
+      "title": "Financial Dashboard",
+      "description": "Real-time financial analytics dashboard with data visualization and automated reporting capabilities.",
+      "tech": ["Vue.js", "Python", "FastAPI", "PostgreSQL"],
+      "image": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      "link": "https://github.com/techforge/finance-dashboard"
+    }
+  ],
+  "team": [
+    {
+      "name": "Joshua Paulo",
+      "role": "IT Project Manager/ IT Consultant/ Software Developer",
+      "photo": "https://scontent.fmnl3-4.fna.fbcdn.net/v/t39.30808-6/512951512_24397316326519482_4970407704876603403_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEGCOG5MQ8DoBWOgaoIO17QHfd0YhtvzMUd93RiG2_MxWyFEG4ulz_BOJA3PfDbmClI8mzurMTyym0Tr3IWTk0e&_nc_ohc=9X1ZUCrrpK8Q7kNvwH0Zwee&_nc_oc=AdkOznt7lUjBcDlUUApSZbMIjYM2wlxUt7PrK-fPqBC1rE5io7tBzzuePWzT66Wwa1k&_nc_zt=23&_nc_ht=scontent.fmnl3-4.fna&_nc_gid=-w4c4i7zpb1HWXjeu5oeAw&oh=00_Afd2b_RX0jJJRnMEFQuh0WnBGvn0HJ0vMZoNcFsBaBw7aw&oe=68E7382C",
+      "linkedin": "https://linkedin.com/in/joshua-paulo-353984b8",
+      "bio": "Visionary IT Leader with a decade experience in tech industry"
+    }
+
+  ],
+  "contact": {
+    "email": "jp1419@gmail.com",
+    "phone": "+63 919 699 4439",
+    "location": "Caloocan, Philippines",
+    "address": "",
+    "socials": {
+      "github": "https://github.com/techforge",
+      "linkedin": "https://linkedin.com/in/joshua-paulo-353984b8",
+      "twitter": "https://twitter.com/techforge"
+    }
+  }
+}

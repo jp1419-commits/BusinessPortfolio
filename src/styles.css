@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  /* CHANGE: Setting the body background to a slightly darker gray (bg-gray-100) */
+  @apply bg-gray-100; 
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #38485f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-padding {
+  @apply py-16 px-4 sm:px-6 lg:px-8;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+.btn-primary {
+  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-xl hover:shadow-sm transition-shadow duration-300 overflow-hidden;
+}
+
+/* NEW: Class for the dark header/footer background color */
+.header-dark {
+  /* This color is sampled from your dark footer image: a dark navy/indigo */
+  background-color: #1D2D49; 
+  color: white; /* Ensures text is readable against the dark background */
+  @apply fixed top-0 w-full z-50; 
+}
+.gradient-bg {
+  background: linear-gradient(180deg, #062198 0%, #8c65b4 100%);
+} 
