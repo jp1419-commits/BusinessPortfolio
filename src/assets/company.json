@@ -16,14 +16,24 @@
       "icon": "🌐"
     },
     {
+      "title": "System Integration & API Development",
+      "description": "Seamless integration of systems (SAP, WMS, Legacy systems) and custom API development to enhance connectivity and data flow using REST, GraphQL, and SOAP.",
+      "icon": "🔗"
+    },
+    {
+      "title": "Data Analytics & Report solutions",
+      "description": "Transform raw data into actionable insights with advanced analytics, visualization, and reporting tools like Power BI, Tableau, and custom dashboards.",
+      "icon": "📊"
+    },
+    {
       "title": "Mobile Applications",
       "description": "Cross-platform mobile apps with seamless user experience using Xamarin, Angular, React Native, Flutter, and native development.",
       "icon": "📱"
     },
     {
-      "title": "Cloud Solutions",
-      "description": "Support you with scalable and secure cloud infrastructure setup and support using AWS, Azure, and Google Cloud Platform.",
-      "icon": "☁️"
+      "title": "IT Staffing & Recruitment",
+      "description": "Connecting you with top-tier IT talent for contract, contract-to-hire, and permanent roles across various tech domains.",
+      "icon": "👥"
     },
     {
       "title": "IT Operations & Maintenance Support",
@@ -33,7 +43,7 @@
     {
       "title": "IT Project Management",
       "description": "End-to-end project management services ensuring timely delivery, budget adherence, and quality outcomes using Waterfall, Agile and Scrum methodologies.",
-      "icon": "📊"
+      "icon": "📈"
     },
     {
       "title": "IT Consulting",
