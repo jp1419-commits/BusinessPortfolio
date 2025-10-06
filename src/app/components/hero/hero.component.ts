@@ -19,7 +19,7 @@ import { CompanyInfo } from '../../models/company.model';
             <img [src]="companyInfo.logo" [alt]="companyInfo.name + ' logo'" 
                   class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
           </div> -->
-          <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 class="text-5xl md:text-7xl font-bold mb-1 leading-tight">
             <!-- {{ companyInfo.name }} -->
                  {{ "Your Innovation Partner" }}
           </h1>
@@ -33,19 +33,19 @@ import { CompanyInfo } from '../../models/company.model';
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <!-- About link -->
-           <a href="#about" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">About
+           <a href="#about" class="btn-secondary">About
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
             </a>
-            <!-- Projects link -->
-            <a href="#services" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">Our Services
+            <!-- Projects services -->
+            <a href="#services" class="btn-primary bg-white text-primary-600 hover:bg-gray-900 text-center">Our Services
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
             </a>
             <!-- contacts link -->
-            <a href="#contact" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">Get In Touch
+            <a href="#contact" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600 text-center">Get In Touch
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>

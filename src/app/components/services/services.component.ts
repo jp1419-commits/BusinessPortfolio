@@ -17,8 +17,8 @@ import { Service } from '../../models/company.model';
           </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let service of services" class="card p-8 text-center group hover:scale-105 transition-transform">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div *ngFor="let service of services" class="card p-2 text-center group hover:bg-blue-50 hover:text-white transition-colors cursor-pointer">
             <div class="text-4xl mb-4">{{ service.icon }}</div>
             <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
               {{ service.title }}

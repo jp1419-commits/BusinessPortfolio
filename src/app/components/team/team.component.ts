@@ -24,7 +24,7 @@ import { TeamMember } from '../../models/company.model';
 
                   <!-- Image -->
                   <img [src]="member.photo" [alt]="member.name" 
-                      class="w-52 h-32 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
+                      class="w-52 h-30 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
                   <div class="absolute inset-0 rounded-full bg-primary-600 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">{{ member.name }}</h3>

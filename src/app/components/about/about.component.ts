@@ -8,7 +8,7 @@ import { TeamMember } from '../../models/company.model';
   standalone: true,
   imports: [CommonModule],
   template: `   
-      <section id="about" class="section-padding bg-gray-50000">
+      <section id="about" class="section-padding bg-gray-100 text-center group">
 
       <div class="container-max">
         <div class="text-center mb-16">
@@ -27,16 +27,16 @@ import { TeamMember } from '../../models/company.model';
           </div>
         </div>
 
-        <!-- <div class="text-center">
+        <div class="text-center">
           <h3 class="text-2xl font-bold text-gray-900 mb-8">Our Values</h3>
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
             <div *ngFor="let value of about.values" 
-                 class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div class="text-primary-600 font-semibold">{{ value }}</div>
+                 class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer flex justify-center w-full">
+              <div class="text-primary-600 font-semibold text-center">{{ value }}</div>
             </div>
           </div>
-        </div> -->
-
+        </div>
+<!-- 
         <div class="text-center">
           <h3 class="text-2xl font-bold text-gray-900 mb-8">Our Values</h3> 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
@@ -46,8 +46,9 @@ import { TeamMember } from '../../models/company.model';
               </div>
         
             </div>
-        </div>
+        </div> -->
       </div>
+
     </section>
   `
 })
