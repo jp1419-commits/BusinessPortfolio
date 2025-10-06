@@ -8,17 +8,13 @@ import { CommonModule } from '@angular/common';
   template: `
     <nav class="fixed top-0 w-full bg-gray-900 text-white shadow-sm z-50 transition-all duration-300">
       <div class="container-max">
-        <div class="flex items-center justify-between py-4">
+        <div class="flex items-center justify-between py-1">
           
           <div class="flex items-center space-x-3">
-            <img [src]="logo" alt="Logo" class="w-10 h-10 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
-            <span class="text-xl font-bold text-white">{{ companyName }}</span>
+            <img [src]="logo" alt="Logo" class="w-8 h-8 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
+            <span class="text-md font-bold text-white">{{ companyName }}</span>
           </div>
-
-          
-
-
-          
+         
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center space-x-8">
             <a href="#about" class="text-white-700 hover:text-primary-600 transition-colors font-medium">About</a>
