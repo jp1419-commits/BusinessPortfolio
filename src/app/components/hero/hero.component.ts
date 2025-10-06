@@ -39,7 +39,7 @@ import { CompanyInfo } from '../../models/company.model';
               </svg>
             </a>
             <!-- Projects link -->
-            <a href="#projects" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">View Our Work
+            <a href="#services" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">Our Services
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
