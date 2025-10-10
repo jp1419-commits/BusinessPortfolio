@@ -2,7 +2,7 @@
   "company": {
     "name": "Joshua Paulo",
     "tagline": "Your Innovation Partner, one line of code at a time.",
-    "logo": "https://scontent.fmnl3-4.fna.fbcdn.net/v/t39.30808-6/512951512_24397316326519482_4970407704876603403_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEGCOG5MQ8DoBWOgaoIO17QHfd0YhtvzMUd93RiG2_MxWyFEG4ulz_BOJA3PfDbmClI8mzurMTyym0Tr3IWTk0e&_nc_ohc=9X1ZUCrrpK8Q7kNvwH0Zwee&_nc_oc=AdkOznt7lUjBcDlUUApSZbMIjYM2wlxUt7PrK-fPqBC1rE5io7tBzzuePWzT66Wwa1k&_nc_zt=23&_nc_ht=scontent.fmnl3-4.fna&_nc_gid=-w4c4i7zpb1HWXjeu5oeAw&oh=00_Afd2b_RX0jJJRnMEFQuh0WnBGvn0HJ0vMZoNcFsBaBw7aw&oe=68E7382C"
+    "logo": "assets/profilepic.png"
    },
   "about": {
     "mission": "Driving human-centric innovation and efficiency by providing end-to-end solutions: Software, IT Staffing, Services, and Project Management.",
@@ -85,7 +85,7 @@
     {
       "name": "Joshua Paulo",
       "role": "IT Project Manager/ IT Consultant/ Software Developer",
-      "photo": "https://scontent.fmnl3-4.fna.fbcdn.net/v/t39.30808-6/512951512_24397316326519482_4970407704876603403_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEGCOG5MQ8DoBWOgaoIO17QHfd0YhtvzMUd93RiG2_MxWyFEG4ulz_BOJA3PfDbmClI8mzurMTyym0Tr3IWTk0e&_nc_ohc=9X1ZUCrrpK8Q7kNvwH0Zwee&_nc_oc=AdkOznt7lUjBcDlUUApSZbMIjYM2wlxUt7PrK-fPqBC1rE5io7tBzzuePWzT66Wwa1k&_nc_zt=23&_nc_ht=scontent.fmnl3-4.fna&_nc_gid=-w4c4i7zpb1HWXjeu5oeAw&oh=00_Afd2b_RX0jJJRnMEFQuh0WnBGvn0HJ0vMZoNcFsBaBw7aw&oe=68E7382C",
+      "photo": "assets/profilepic.png",
       "linkedin": "https://linkedin.com/in/joshua-paulo-353984b8",
       "bio": "Visionary IT Leader with a decade experience in tech industry"
     }
