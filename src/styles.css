@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 
@@ -17,6 +18,8 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #38485f;
+      /* Ensure the body background is black or transparent */
+    background-color: black; 
 }
 
 html {

@@ -33,14 +33,14 @@ import { FooterComponent } from './components/footer/footer.component';
   template: `
     <div class="min-h-screen">
       <div *ngIf="companyData; else loading">
-        <app-navbar 
+        <!-- <app-navbar 
           [companyName]="companyData.company.name"
           [logo]="companyData.company.logo">
-        </app-navbar>
+        </app-navbar> -->
         
         <app-hero [companyInfo]="companyData.company"></app-hero>
         
-        <app-about [about]="companyData.about"></app-about>
+        <!-- <app-about [about]="companyData.about"></app-about>
         <app-services [services]="companyData.services"></app-services>
         <app-projects [projects]="companyData.projects"></app-projects>
 
@@ -50,7 +50,7 @@ import { FooterComponent } from './components/footer/footer.component';
         <app-footer 
           [companyInfo]="companyData.company"
           [contact]="companyData.contact">
-        </app-footer>
+        </app-footer> -->
       </div>
       
       <ng-template #loading>
