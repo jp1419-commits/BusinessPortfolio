@@ -104,8 +104,6 @@ export interface Contact {
   location: string;
   address: string;
   socials: {
-    github: string;
     linkedin: string;
-    twitter: string;
   };
 }

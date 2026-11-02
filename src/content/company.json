@@ -1,7 +1,7 @@
 {
   "company": {
     "name": "Innovation Partner",
-    "tagline": "Your Innovation Partner, one line of code at a time.",
+    "tagline": "Your IT Solutions & Staffing Partner. IT expertise, the right talent, and reliable operations.",
     "logo": "assets/logo.svg"
    },
   "hero": {
@@ -98,9 +98,7 @@
     "location": "Caloocan, Philippines",
     "address": "",
     "socials": {
-      "github": "https://github.com/techforge",
-      "linkedin": "https://linkedin.com/in/joshua-paulo-353984b8",
-      "twitter": "https://twitter.com/techforge"
+      "linkedin": "https://linkedin.com/in/joshua-paulo-353984b8"
     }
   }
 }

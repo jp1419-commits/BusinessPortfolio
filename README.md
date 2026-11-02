@@ -6,7 +6,8 @@ Live site: https://innovation-partner.vercel.app/
 
 ## Editing content
 
-All page text lives in [`src/assets/company.json`](src/assets/company.json), so most updates need no code changes.
+All page text lives in [`src/content/company.json`](src/content/company.json), so most updates need no code
+changes. The file is built into the app, so the page shows instantly; edits go live with the next deploy.
 
 | Key | What it controls |
 | --- | --- |
@@ -47,8 +48,11 @@ preview deployments.
 
 ## Search engines and analytics
 
-- `public/robots.txt` and `public/sitemap.xml` point at https://innovation-partner.vercel.app. Update both
-  if the site moves to a custom domain.
+- The site address https://innovation-partner.vercel.app appears in `public/robots.txt`,
+  `public/sitemap.xml`, and the canonical and link-preview tags in `src/index.html`. Update all of them if the
+  site moves to a custom domain.
+- Link previews (LinkedIn, Facebook, Messenger, Viber, X) use the title, description and
+  `public/og-image.jpg` (1200x630) set in `src/index.html`.
 - Business details for search engines (schema.org structured data) are generated from `company.json` at
   runtime by `src/app/services/structured-data.service.ts`.
 - Vercel Web Analytics is wired in `src/index.html`. Turn it on in Vercel under Project > Analytics > Enable.
