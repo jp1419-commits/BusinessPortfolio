@@ -21,8 +21,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-  /* Keep in-page anchor targets clear of the fixed navbar. */
-  scroll-padding-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -77,28 +75,6 @@ html {
   /* Headline under a section label (recolor with `text-ink` on light sections). */
   .section-statement {
     @apply mt-2.5 text-balance text-2xl font-semibold leading-tight tracking-tight text-white xl:text-[1.75rem] compact:text-[1.375rem];
-  }
-
-  /* Contact detail rows on dark surfaces (Get In Touch). */
-  .contact-card {
-    @apply flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition duration-300;
-  }
-
-  a.contact-card {
-    @apply hover:border-primary-400/40 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400;
-  }
-
-  .contact-icon {
-    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300 ring-1 ring-inset ring-primary-400/25;
-  }
-
-  .contact-kicker {
-    @apply block text-xs font-semibold uppercase tracking-[0.18em] text-slate-400;
-  }
-
-  /* Text inputs on dark surfaces (Get In Touch form). */
-  .form-field {
-    @apply mt-2 block w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-white shadow-inner shadow-black/10 transition placeholder:text-slate-500 focus:border-primary-400 focus:bg-white/[0.09] focus:outline-none focus:ring-2 focus:ring-primary-400/30;
   }
 }
 

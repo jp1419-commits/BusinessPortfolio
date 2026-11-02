@@ -16,11 +16,11 @@ import { ServicesComponent } from '../services/services.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
-    <div data-nav-theme="dark" class="relative isolate overflow-hidden bg-navy-900 text-white">
+    <div class="relative isolate overflow-hidden bg-navy-900 text-white">
       <app-backdrop tone="dark" />
 
       <div
-        class="flex min-h-screen min-h-svh flex-col justify-center px-4 py-20 sm:px-6 lg:px-8 lg:pb-[clamp(1.25rem,4vh,3rem)] lg:pt-[calc(72px_+_clamp(1rem,3.5vh,3rem))] compact:pb-4"
+        class="flex min-h-screen min-h-svh flex-col justify-center px-4 py-20 sm:px-6 lg:px-8 lg:py-[clamp(1.25rem,4vh,3rem)] compact:py-4"
       >
         <div class="container-max w-full">
           <app-services [copy]="copy().services" [services]="services()" />

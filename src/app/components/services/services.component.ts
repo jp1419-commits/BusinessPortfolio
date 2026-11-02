@@ -15,7 +15,7 @@ import { IllustrationComponent } from '../illustration/illustration.component';
     <section
       id="services"
       aria-labelledby="services-title"
-      class="grid gap-8 lg:grid-cols-12 lg:gap-12"
+      class="grid scroll-mt-6 gap-8 lg:grid-cols-12 lg:gap-12"
     >
       <div appReveal class="lg:col-span-4">
         <h2 id="services-title" class="section-label">{{ copy().label }}</h2>

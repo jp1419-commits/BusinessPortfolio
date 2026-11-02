@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { CompanyInfo, Contact } from '../../models/company.model';
 import { IconComponent } from '../icon/icon.component';
 
@@ -8,7 +8,7 @@ import { IconComponent } from '../icon/icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
-    <footer data-nav-theme="dark" class="relative bg-navy-950 px-4 text-white sm:px-6 lg:px-8">
+    <footer class="relative bg-navy-950 px-4 text-white sm:px-6 lg:px-8">
       <div
         aria-hidden="true"
         class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-400/40 to-transparent"
@@ -87,7 +87,7 @@ import { IconComponent } from '../icon/icon.component';
               </li>
               <li>
                 <a
-                  [href]="'tel:' + contact().phone"
+                  [href]="phoneHref()"
                   class="inline-flex items-center gap-3 rounded text-slate-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
                 >
                   <app-icon name="phone" class="h-4 w-4 text-primary-300" />
@@ -132,6 +132,11 @@ export class FooterComponent {
     { href: '#about', label: 'About Us' },
     { href: '#contact', label: 'Get In Touch' },
   ];
+
+  /** tel: links must not contain spaces. */
+  protected readonly phoneHref = computed(
+    () => `tel:${this.contact().phone.replace(/[^+\d]/g, '')}`,
+  );
 
   protected readonly currentYear = new Date().getFullYear();
 }

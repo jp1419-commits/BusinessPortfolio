@@ -13,7 +13,6 @@ import { IconComponent } from '../icon/icon.component';
   template: `
     <section
       id="top"
-      data-nav-theme="light"
       class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8"
     >
       <app-backdrop tone="light" belowNav />

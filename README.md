@@ -18,7 +18,7 @@ changes. The file is built into the app, so the page shows instantly; edits go l
 | `process` | How We Work steps: title, description, icon |
 | `clientValue` | Client Value statements and their icons |
 | `about` | About Us: label, headline, mission, vision, values (with icons) |
-| `contact` | Get In Touch copy, email, phone, location, LinkedIn |
+| `contact` | Get In Touch headline and intro, the email and phone card wording (`emailCta`, `phoneCta`), email, phone, location, LinkedIn |
 
 Icons are referenced by name. The available names are listed in `IconName` in
 [`src/app/models/company.model.ts`](src/app/models/company.model.ts).

@@ -99,6 +99,10 @@ export interface Contact {
   label: string;
   title: string;
   intro: string;
+  /** Call to action shown on the email card, e.g. "Send us your ideas". */
+  emailCta: string;
+  /** Call to action shown on the phone card, e.g. "Give us a call". */
+  phoneCta: string;
   email: string;
   phone: string;
   location: string;

@@ -18,7 +18,7 @@ import { IconComponent } from '../icon/icon.component';
     <section
       id="how-we-work"
       aria-labelledby="how-we-work-title"
-      class="grid gap-8 lg:grid-cols-12 lg:gap-12"
+      class="grid scroll-mt-6 gap-8 lg:grid-cols-12 lg:gap-12"
     >
       <div appReveal class="lg:col-span-4">
         <h2 id="how-we-work-title" class="section-label">{{ copy().label }}</h2>
