@@ -60,19 +60,45 @@ html {
 }
 
 @layer components {
-  /* Small label naming a block on page 2, e.g. "—— WHAT WE DELIVER". */
+  /*
+   * Label naming a section, e.g. "—— WHAT WE DELIVER". It stays smaller than the
+   * `.section-statement` headline beneath it at every breakpoint. Light sections recolor
+   * it with a text utility (e.g. `text-primary-600`).
+   */
   .section-label {
-    @apply flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300;
+    @apply flex items-center gap-3 text-sm/5 font-semibold uppercase tracking-[0.18em] text-primary-300 sm:text-base/6 lg:text-lg/6 compact:text-base/6;
   }
 
   .section-label::before {
     content: '';
-    @apply h-px w-8 bg-gradient-to-r from-primary-500 to-primary-300;
+    @apply h-px w-10 shrink-0 bg-gradient-to-r from-primary-500 to-primary-300;
   }
 
-  /* Headline under a section label. */
+  /* Headline under a section label (recolor with `text-ink` on light sections). */
   .section-statement {
-    @apply mt-3 text-balance text-2xl font-semibold leading-tight tracking-tight text-white xl:text-[1.75rem] compact:text-[1.375rem];
+    @apply mt-2.5 text-balance text-2xl font-semibold leading-tight tracking-tight text-white xl:text-[1.75rem] compact:text-[1.375rem];
+  }
+
+  /* Contact detail rows on dark surfaces (Get In Touch). */
+  .contact-card {
+    @apply flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition duration-300;
+  }
+
+  a.contact-card {
+    @apply hover:border-primary-400/40 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400;
+  }
+
+  .contact-icon {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300 ring-1 ring-inset ring-primary-400/25;
+  }
+
+  .contact-kicker {
+    @apply block text-xs font-semibold uppercase tracking-[0.18em] text-slate-400;
+  }
+
+  /* Text inputs on dark surfaces (Get In Touch form). */
+  .form-field {
+    @apply mt-2 block w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-white shadow-inner shadow-black/10 transition placeholder:text-slate-500 focus:border-primary-400 focus:bg-white/[0.09] focus:outline-none focus:ring-2 focus:ring-primary-400/30;
   }
 }
 
@@ -88,17 +114,9 @@ html {
   }
 
   /* Connector lines draw themselves instead of fading in. */
-  .reveal.reveal-draw-x,
-  .reveal.reveal-draw-y {
-    animation-duration: 1.4s;
-  }
-
   .reveal.reveal-draw-x {
     animation-name: reveal-draw-x;
-  }
-
-  .reveal.reveal-draw-y {
-    animation-name: reveal-draw-y;
+    animation-duration: 1.4s;
   }
 
   .reveal.is-revealed {
@@ -114,9 +132,14 @@ html {
     animation: il-blink 1.1s steps(1) infinite;
   }
 
-  .il-scan {
-    stroke-dasharray: 46 400;
-    animation: il-scan 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  .il-bar {
+    transform-box: fill-box;
+    transform-origin: left center;
+    animation: il-bar 2.7s ease-in-out infinite alternate;
+  }
+
+  .il-led {
+    animation: il-led 1.8s steps(1) infinite;
   }
 }
 
@@ -140,15 +163,6 @@ html {
   }
 }
 
-@keyframes reveal-draw-y {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-
 @keyframes il-flow {
   to {
     stroke-dashoffset: -16;
@@ -161,12 +175,18 @@ html {
   }
 }
 
-@keyframes il-scan {
+@keyframes il-bar {
   from {
-    stroke-dashoffset: 46;
+    transform: scaleX(0.72);
   }
   to {
-    stroke-dashoffset: -230;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes il-led {
+  50% {
+    opacity: 0.25;
   }
 }
 

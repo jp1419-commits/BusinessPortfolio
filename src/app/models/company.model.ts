@@ -20,6 +20,12 @@ export type IconName =
   | 'target'
   | 'chart'
   | 'shield'
+  | 'globe'
+  | 'star'
+  | 'mail'
+  | 'phone'
+  | 'pin'
+  | 'send'
   | 'arrow-right'
   | 'chevron-right'
   | 'menu'
@@ -43,14 +49,16 @@ export interface Hero {
 }
 
 export interface About {
+  label: string;
+  title: string;
   mission: string;
   vision: string;
-  values: string[];
-  name: string;
-  role: string;
-  photo: string;
-  linkedin: string;
-  bio: string;
+  values: AboutValue[];
+}
+
+export interface AboutValue {
+  title: string;
+  icon: IconName;
 }
 
 /** Small label plus headline that introduces a block on page 2. */
@@ -87,6 +95,9 @@ export interface ClientValue {
 }
 
 export interface Contact {
+  label: string;
+  title: string;
+  intro: string;
   email: string;
   phone: string;
   location: string;

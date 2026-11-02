@@ -3,7 +3,7 @@ import { IllustrationName } from '../../models/company.model';
 
 /**
  * Small decorative scenes for the "What We Deliver" cards, drawn for a dark background.
- * Each scene has a subtle loop (data flow, typing cursor, monitoring scan) that only runs
+ * Each scene has a subtle loop (data flow, typing cursor, server activity) that only runs
  * when the visitor allows motion (see `.il-*` in styles.css).
  */
 @Component({
@@ -132,15 +132,16 @@ import { IllustrationName } from '../../models/company.model';
         }
         @case ('operations') {
           <defs>
-            <linearGradient id="il-ops-line" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#93cbf6" />
-              <stop offset="1" stop-color="#2491e6" />
+            <linearGradient id="il-ops-bar" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2491e6" />
+              <stop offset="1" stop-color="#93cbf6" />
             </linearGradient>
             <linearGradient id="il-ops-badge" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#5aaeef" />
               <stop offset="1" stop-color="#0a74d1" />
             </linearGradient>
           </defs>
+          <!-- Service health board: systems, network, infrastructure -->
           <rect
             x="22"
             y="10"
@@ -155,44 +156,90 @@ import { IllustrationName } from '../../models/company.model';
           <circle cx="35" cy="23" r="3.5" fill="#5aaeef" />
           <rect x="43" y="20" width="36" height="6" rx="3" fill="#fff" fill-opacity="0.3" />
           <rect x="140" y="19" width="34" height="8" rx="4" fill="#5aaeef" fill-opacity="0.3" />
-          <path d="M34 42h140M34 56h140M34 70h140" stroke="#fff" stroke-opacity="0.07" />
-          <path
-            d="M34 62h28l8-16 10 26 10-34 8 24h22l6-10 6 10h42"
-            stroke="#fff"
-            stroke-opacity="0.16"
-            stroke-width="2.25"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            class="il-scan"
-            d="M34 62h28l8-16 10 26 10-34 8 24h22l6-10 6 10h42"
-            stroke="url(#il-ops-line)"
-            stroke-width="2.25"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <g fill="#2491e6" fill-opacity="0.35">
+            <rect x="34" y="35" width="13" height="13" rx="3.5" />
+            <rect x="34" y="53" width="13" height="13" rx="3.5" />
+            <rect x="34" y="71" width="13" height="13" rx="3.5" />
+          </g>
+          <g stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M37.5 39.5h6M37.5 43.5h6" />
+            <path d="M40.5 57.5v2.5M37.5 62.5l3-2.5 3 2.5" />
+            <path d="M37.5 79.5h6a1.8 1.8 0 0 0 0-3.6 2.4 2.4 0 0 0-4.6-.4 1.7 1.7 0 0 0-1.4 4z" />
+          </g>
+          <g fill="#fff" fill-opacity="0.1">
+            <rect x="55" y="39" width="96" height="5" rx="2.5" />
+            <rect x="55" y="57" width="96" height="5" rx="2.5" />
+            <rect x="55" y="75" width="96" height="5" rx="2.5" />
+          </g>
+          <g fill="url(#il-ops-bar)">
+            <rect class="il-bar" x="55" y="39" width="78" height="5" rx="2.5" />
+            <rect
+              class="il-bar"
+              style="animation-delay: -0.9s"
+              x="55"
+              y="57"
+              width="64"
+              height="5"
+              rx="2.5"
+            />
+            <rect
+              class="il-bar"
+              style="animation-delay: -1.8s"
+              x="55"
+              y="75"
+              width="86"
+              height="5"
+              rx="2.5"
+            />
+          </g>
+          <g fill="#5aaeef">
+            <circle cx="166" cy="41.5" r="3.5" />
+            <circle cx="166" cy="59.5" r="3.5" />
+            <circle cx="166" cy="77.5" r="3.5" />
+          </g>
+          <!-- Server rack with activity lights -->
           <g fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.16">
             <rect x="200" y="14" width="58" height="20" rx="5" />
             <rect x="200" y="40" width="58" height="20" rx="5" />
             <rect x="200" y="66" width="58" height="20" rx="5" />
           </g>
-          <circle cx="211" cy="24" r="2.5" fill="#5aaeef" />
-          <circle cx="211" cy="50" r="2.5" fill="#5aaeef" />
-          <circle cx="211" cy="76" r="2.5" fill="#93cbf6" />
-          <g fill="#fff" fill-opacity="0.25">
-            <rect x="219" y="22" width="28" height="4" rx="2" />
-            <rect x="219" y="48" width="22" height="4" rx="2" />
-            <rect x="219" y="74" width="26" height="4" rx="2" />
+          <g stroke="#fff" stroke-opacity="0.22" stroke-width="1.5" stroke-linecap="round">
+            <path d="M228 20.5v7M233 20.5v7M238 20.5v7M243 20.5v7M248 20.5v7" />
+            <path d="M228 46.5v7M233 46.5v7M238 46.5v7M243 46.5v7M248 46.5v7" />
+            <path d="M228 72.5v7M233 72.5v7M238 72.5v7M243 72.5v7M248 72.5v7" />
           </g>
+          <circle class="il-led" cx="210" cy="24" r="2.5" fill="#5aaeef" />
+          <circle
+            class="il-led"
+            style="animation-delay: -0.6s"
+            cx="210"
+            cy="50"
+            r="2.5"
+            fill="#93cbf6"
+          />
+          <circle
+            class="il-led"
+            style="animation-delay: -1.2s"
+            cx="210"
+            cy="76"
+            r="2.5"
+            fill="#5aaeef"
+          />
+          <circle cx="218" cy="24" r="2" fill="#fff" fill-opacity="0.25" />
+          <circle cx="218" cy="50" r="2" fill="#fff" fill-opacity="0.25" />
+          <circle cx="218" cy="76" r="2" fill="#fff" fill-opacity="0.25" />
+          <!-- Technical support badge -->
           <circle cx="182" cy="84" r="11" fill="url(#il-ops-badge)" />
           <path
-            d="m177 84 3.5 3.5 6.5-7"
+            d="M177 86.5v-2.5a5 5 0 0 1 10 0v2.5"
             stroke="#fff"
-            stroke-width="2"
+            stroke-width="1.6"
             stroke-linecap="round"
-            stroke-linejoin="round"
           />
+          <g fill="#fff">
+            <rect x="175.4" y="84.8" width="3" height="4.2" rx="1.3" />
+            <rect x="185.6" y="84.8" width="3" height="4.2" rx="1.3" />
+          </g>
         }
       }
     </svg>

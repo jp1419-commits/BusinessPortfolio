@@ -7,7 +7,7 @@ import { CompanyInfo, Contact } from '../../models/company.model';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-navy-950 text-white py-12 px-4 sm:px-6 lg:px-8">
       <div class="container-max">
         <div class="grid md:grid-cols-4 gap-8">
           <div class="md:col-span-2">
@@ -57,7 +57,7 @@ import { CompanyInfo, Contact } from '../../models/company.model';
           </div>
         </div>
         
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {{ currentYear }} {{ companyInfo.name }}. All rights reserved.</p>
         </div>
       </div>

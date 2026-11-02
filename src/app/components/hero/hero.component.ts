@@ -2,38 +2,20 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { NgOptimizedImage } from '@angular/common';
 import { Hero } from '../../models/company.model';
 import { RevealDirective } from '../../directives/reveal.directive';
+import { BackdropComponent } from '../backdrop/backdrop.component';
 import { IconComponent } from '../icon/icon.component';
 
 /** Page 1: full-screen introduction. */
 @Component({
   selector: 'app-hero',
-  imports: [NgOptimizedImage, IconComponent, RevealDirective],
+  imports: [NgOptimizedImage, BackdropComponent, IconComponent, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
       id="top"
-      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden bg-gradient-to-b from-white via-white to-primary-50 px-4 pb-28 pt-28 sm:px-6 lg:px-8"
+      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8"
     >
-      <!-- Background: faint grid + the corner ribbons from the brand artwork -->
-      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-        <div
-          class="absolute inset-0 bg-[linear-gradient(to_right,rgb(10_116_209/0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgb(10_116_209/0.06)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_40%,transparent_100%)]"
-        ></div>
-        <svg
-          class="absolute right-0 top-[72px] hidden h-40 w-40 sm:block lg:h-56 lg:w-56"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="hero-ribbon" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#2491e6" />
-              <stop offset="1" stop-color="#085ead" />
-            </linearGradient>
-          </defs>
-          <polygon points="34,0 58,0 100,42 100,66" fill="#5aaeef" opacity="0.55" />
-          <polygon points="66,0 100,0 100,34" fill="url(#hero-ribbon)" />
-        </svg>
-      </div>
+      <app-backdrop tone="light" belowNav />
 
       <div class="container-max grid w-full items-center gap-16 lg:grid-cols-12">
         <div class="lg:col-span-7">

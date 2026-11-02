@@ -26,9 +26,15 @@
     }
   },
   "about": {
+    "label": "About Us",
+    "title": "Human-centric innovation, delivered end to end.",
     "mission": "Driving human-centric innovation and efficiency by providing end-to-end solutions: Software, IT Staffing, Services, and Project Management.",
-    "vision": "To unlock global potential. We aim to be the definitive leader in digital transformation, providing the technology that powers organizational success..",
-    "values": ["Human-centric", "Customer focus", "Excellence"]
+    "vision": "To unlock global potential. We aim to be the definitive leader in digital transformation, providing the technology that powers organizational success.",
+    "values": [
+      { "title": "Human-centric", "icon": "team" },
+      { "title": "Customer focus", "icon": "handshake" },
+      { "title": "Excellence", "icon": "star" }
+    ]
   },
   "services": [
     {
@@ -84,6 +90,9 @@
     { "title": "A Reliable Long\u2011Term Partner", "icon": "shield" }
   ],
   "contact": {
+    "label": "Get In Touch",
+    "title": "Ready for your solution upgrade?",
+    "intro": "We can discuss it and bring your ideas to life.",
     "email": "jp1419@gmail.com",
     "phone": "+63 919 699 4439",
     "location": "Caloocan, Philippines",
