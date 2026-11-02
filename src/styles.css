@@ -21,6 +21,14 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /* Keep in-page anchor targets clear of the fixed navbar. */
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .section-padding {
@@ -32,11 +40,11 @@ html {
 }
 
 .btn-primary {
-  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2;
+  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
 }
 
 .btn-secondary {
-  @apply bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2;
+  @apply bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
 }
 
 .card {
@@ -50,6 +58,15 @@ html {
   color: white; /* Ensures text is readable against the dark background */
   @apply fixed top-0 w-full z-50; 
 }
-.gradient-bg {
-  background: linear-gradient(180deg, #062198 0%, #8c65b4 100%);
-} 
+
+@layer components {
+  /* Landing-page section title followed by a rule, e.g. "WHAT WE DELIVER ———". */
+  .section-heading {
+    @apply flex items-center gap-5 text-2xl font-extrabold uppercase tracking-tight text-ink sm:text-3xl;
+  }
+
+  .section-heading::after {
+    content: '';
+    @apply h-0.5 flex-1 rounded-full bg-gradient-to-r from-primary-500 via-primary-300 to-transparent;
+  }
+}

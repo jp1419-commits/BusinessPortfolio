@@ -12,7 +12,7 @@ import { CompanyInfo, Contact } from '../../models/company.model';
         <div class="grid md:grid-cols-4 gap-8">
           <div class="md:col-span-2">
             <div class="flex items-center space-x-3 mb-4">
-              <img [src]="companyInfo.logo" alt="Logo" class="w-10 h-10 rounded-full">
+              <img [src]="companyInfo.logo" width="40" height="40" alt="" loading="lazy" class="w-10 h-10">
               <span class="text-xl font-bold">{{ companyInfo.name }}</span>
             </div>
             <p class="text-gray-300 mb-6 max-w-md">{{ companyInfo.tagline }}</p>
@@ -41,8 +41,9 @@ import { CompanyInfo, Contact } from '../../models/company.model';
           <div>
             <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
             <ul class="space-y-2">
-              <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
               <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+              <li><a href="#how-we-work" class="text-gray-300 hover:text-white transition-colors">How We Work</a></li>
+              <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
               <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
               <li><a href="#team" class="text-gray-300 hover:text-white transition-colors">Team</a></li>
             </ul>

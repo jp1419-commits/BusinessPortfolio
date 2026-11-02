@@ -1,9 +1,15 @@
 {
   "company": {
-    "name": "Joshua Paulo",
+    "name": "Innovation Partner",
     "tagline": "Your Innovation Partner, one line of code at a time.",
-    "logo": "assets/profilepic.png"
+    "logo": "assets/logo.svg"
    },
+  "hero": {
+    "eyebrow": "Systems · Software · Operations & Support",
+    "title": "Your IT Solutions & Staffing Partner",
+    "highlight": "IT Solutions & Staffing",
+    "subtitle": "We combine IT expertise, the right talent, and operational support to deliver innovative and reliable business solutions."
+  },
   "about": {
     "mission": "Driving human-centric innovation and efficiency by providing end-to-end solutions: Software, IT Staffing, Services, and Project Management.",
     "vision": "To unlock global potential. We aim to be the definitive leader in digital transformation, providing the technology that powers organizational success..",
@@ -11,45 +17,56 @@
   },
   "services": [
     {
-      "title": "Web & Desktop App Development",
-      "description": "Custom web applications built with modern frameworks like Angular, React, Vue.js, .NET for optimal performance and user experience.",
-      "icon": "🌐"
+      "title": "Systems",
+      "description": "IT SME Consulting & Implementation Support",
+      "icon": "laptop",
+      "tags": ["ERP", "HRIS", "CRM"]
     },
     {
-      "title": "System Integration & API Development",
-      "description": "Seamless integration of systems (SAP, WMS, Legacy systems) and custom API development to enhance connectivity and data flow using REST, GraphQL, and SOAP.",
-      "icon": "🔗"
+      "title": "Software",
+      "description": "Custom Application Development & Enhancements",
+      "icon": "code",
+      "tags": ["Web", "Mobile", "Desktop"]
     },
     {
-      "title": "Data Analytics & Report solutions",
-      "description": "Transform raw data into actionable insights with advanced analytics, visualization, and reporting tools like Power BI, Tableau, and custom dashboards.",
-      "icon": "📊"
-    },
-    {
-      "title": "Mobile Applications",
-      "description": "Cross-platform mobile apps with seamless user experience using Xamarin, Angular, React Native, Flutter, and native development.",
-      "icon": "📱"
-    },
-    {
-      "title": "IT Staffing & Recruitment",
-      "description": "Connecting you with top-tier IT talent for contract, contract-to-hire, and permanent roles across various tech domains.",
-      "icon": "👥"
-    },
-    {
-      "title": "IT Operations & Maintenance Support",
-      "description": "Comprehensive IT support services including system monitoring, troubleshooting, and regular maintenance to ensure optimal performance.",
-      "icon": "⚙️"
-    },
-    {
-      "title": "IT Project Management",
-      "description": "End-to-end project management services ensuring timely delivery, budget adherence, and quality outcomes using Waterfall, Agile and Scrum methodologies.",
-      "icon": "📈"
-    },
-    {
-      "title": "IT Consulting",
-      "description": "Strategic IT consulting to align technology initiatives with business goals, improve processes, and drive innovation.",
-      "icon": "💡"
+      "title": "Operations & Support",
+      "description": "Managed IT Operations & Technical Support",
+      "icon": "headset",
+      "tags": ["Systems", "Network", "Infrastructure"]
     }
+  ],
+  "process": [
+    {
+      "title": "Problem",
+      "description": "Understand your business goals and challenges.",
+      "icon": "search"
+    },
+    {
+      "title": "Solutioning",
+      "description": "Design the right approach and solution.",
+      "icon": "lightbulb"
+    },
+    {
+      "title": "Staffing & Delivery",
+      "description": "Provide the right IT SMEs and teams to build, implement, and deliver.",
+      "icon": "team"
+    },
+    {
+      "title": "Operations & Support",
+      "description": "Run, maintain, and support the solution for stable operations.",
+      "icon": "gear"
+    },
+    {
+      "title": "Handover",
+      "description": "Transition with knowledge transfer and full enablement.",
+      "icon": "handshake"
+    }
+  ],
+  "clientValue": [
+    { "title": "The Right IT Expertise (IT\u00a0SMEs)", "icon": "target" },
+    { "title": "A Skilled & Flexible Team", "icon": "team" },
+    { "title": "Stable & Efficient Operations", "icon": "chart" },
+    { "title": "A Reliable Long\u2011Term Partner", "icon": "shield" }
   ],
   "projects": [
     {

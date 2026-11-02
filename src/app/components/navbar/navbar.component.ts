@@ -1,62 +1,101 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [NgOptimizedImage, IconComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '(document:keydown.escape)': 'closeMobileMenu()' },
   template: `
-    <nav class="fixed top-0 w-full bg-gray-900 text-white shadow-sm z-50 transition-all duration-300">
-      <div class="container-max">
-        <div class="flex items-center justify-between py-1">
-          
-          <div class="flex items-center space-x-3">
-            <img [src]="logo" alt="Logo" class="w-8 h-8 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
-            <span class="text-md font-bold text-white">{{ companyName }}</span>
-          </div>
-         
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="#about" class="text-white-700 hover:text-primary-600 transition-colors font-medium">About</a>
-            <a href="#services" class="text-white-700 hover:text-primary-600 transition-colors font-medium">Services</a>
-            <a href="#projects" class="text-white-700 hover:text-primary-600 transition-colors font-medium">Projects</a>
-            <a href="#team" class="text-white-700 hover:text-primary-600 transition-colors font-medium">Team</a>
-            <a href="#contact" class="btn-primary">Contact Us</a>
-          </div>
-          
-          <!-- Mobile Menu Button -->
-          <button (click)="toggleMobileMenu()" class="md:hidden p-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
+    <header
+      class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-md"
+    >
+      <nav
+        aria-label="Primary"
+        class="container-max flex h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8"
+      >
+        <a
+          href="#top"
+          class="flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
+        >
+          <img [ngSrc]="logo()" width="40" height="40" priority alt="" class="h-10 w-10" />
+          <span
+            class="max-w-[7.5rem] text-[17px] font-extrabold leading-[1.05] tracking-tight text-ink"
+          >
+            {{ companyName() }}
+          </span>
+        </a>
+
+        <!-- Desktop menu -->
+        <div class="hidden items-center gap-8 lg:flex">
+          @for (link of links; track link.href) {
+            <a
+              [href]="link.href"
+              class="rounded text-[15px] font-medium text-slate-600 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
+            >
+              {{ link.label }}
+            </a>
+          }
+          <a href="#contact" class="btn-primary">Contact Us</a>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div [class]="'md:hidden transition-all duration-300 overflow-hidden ' + (mobileMenuOpen ? 'max-h-64 pb-4' : 'max-h-0')">
-          <div class="flex flex-col space-y-4">
-            <a href="#about" (click)="closeMobileMenu()" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">About</a>
-            <a href="#services" (click)="closeMobileMenu()" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">Services</a>
-            <a href="#projects" (click)="closeMobileMenu()" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">Projects</a>
-            <a href="#team" (click)="closeMobileMenu()" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">Team</a>
-            <a href="#contact" (click)="closeMobileMenu()" class="btn-primary inline-flex w-fit">Contact Us</a>
-          </div>
+
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          class="-mr-2 rounded-lg p-2 text-ink transition-colors hover:bg-primary-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 lg:hidden"
+          aria-controls="mobile-menu"
+          [attr.aria-expanded]="mobileMenuOpen()"
+          [attr.aria-label]="mobileMenuOpen() ? 'Close menu' : 'Open menu'"
+          (click)="toggleMobileMenu()"
+        >
+          <app-icon [name]="mobileMenuOpen() ? 'close' : 'menu'" class="h-6 w-6" />
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="border-t border-slate-200/70 bg-white shadow-lg shadow-slate-900/5 lg:hidden"
+        [class.hidden]="!mobileMenuOpen()"
+      >
+        <div class="container-max flex flex-col gap-1 px-4 py-4 sm:px-6">
+          @for (link of links; track link.href) {
+            <a
+              [href]="link.href"
+              (click)="closeMobileMenu()"
+              class="rounded-lg px-3 py-2.5 font-medium text-slate-700 transition-colors hover:bg-primary-50 hover:text-primary-700"
+            >
+              {{ link.label }}
+            </a>
+          }
+          <a href="#contact" (click)="closeMobileMenu()" class="btn-primary mt-2 justify-center">
+            Contact Us
+          </a>
         </div>
       </div>
-    </nav>
-  `
+    </header>
+  `,
 })
 export class NavbarComponent {
-  @Input() companyName!: string;
-  @Input() logo!: string;
-  
-  mobileMenuOpen = false;
+  readonly companyName = input.required<string>();
+  readonly logo = input.required<string>();
 
-  toggleMobileMenu() {
-    this.mobileMenuOpen = !this.mobileMenuOpen;
+  protected readonly links = [
+    { href: '#services', label: 'Services' },
+    { href: '#how-we-work', label: 'How We Work' },
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#team', label: 'Team' },
+  ];
+
+  protected readonly mobileMenuOpen = signal(false);
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen.update((open) => !open);
   }
 
-  closeMobileMenu() {
-    this.mobileMenuOpen = false;
+  closeMobileMenu(): void {
+    this.mobileMenuOpen.set(false);
   }
 }

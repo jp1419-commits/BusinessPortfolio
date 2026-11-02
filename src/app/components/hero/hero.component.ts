@@ -1,69 +1,119 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CompanyInfo } from '../../models/company.model';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { Hero } from '../../models/company.model';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-hero',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [NgOptimizedImage, IconComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="gradient-bg text-white section-padding min-h-screen flex items-center">
-      <div class="container-max relative">
-        <div class="text-center max-w-4xl mx-auto">
+    <section
+      id="top"
+      class="relative isolate overflow-hidden bg-gradient-to-b from-white via-white to-primary-50 px-4 pb-20 pt-32 sm:px-6 sm:pb-24 lg:px-8 lg:pb-24 lg:pt-40"
+    >
+      <!-- Background: faint grid + the corner ribbons from the brand artwork -->
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-[linear-gradient(to_right,rgb(10_116_209/0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgb(10_116_209/0.06)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_40%,transparent_100%)]"
+        ></div>
+        <svg
+          class="absolute right-0 top-[72px] hidden h-40 w-40 sm:block lg:h-56 lg:w-56"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="hero-ribbon" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2491e6" />
+              <stop offset="1" stop-color="#085ead" />
+            </linearGradient>
+          </defs>
+          <polygon points="34,0 58,0 100,42 100,66" fill="#5aaeef" opacity="0.55" />
+          <polygon points="66,0 100,0 100,34" fill="url(#hero-ribbon)" />
+        </svg>
+      </div>
 
-
-          <!-- <h2 class="text-3xl md:text-4xl font-semibold mb-4">{{ companyInfo.tagline }}</h2> -->
-          
-          <!-- CHANGE: Added a logo image above the main heading -->
-          <!-- <div class="relative mb-6">
-            <img [src]="companyInfo.logo" [alt]="companyInfo.name + ' logo'" 
-                  class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow">
-          </div> -->
-          <h1 class="text-5xl md:text-7xl font-bold mb-1 leading-tight">
-            <!-- {{ companyInfo.name }} -->
-                 {{ "Your Innovation Partner" }}
-          </h1>
-          <div class="w-44 h-0.5 bg-primary-400 mx-auto mb-6"></div>
-
-          <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">   
-            Your partner specialized in end-to-end IT Project Management and Software Development. 
-            <br>We delivery wide range of projects, from small to large-scale, including desktop applications, web APIs, ERP, SAP integrations (RFC), and IT services.
-            <br><br>Our proficiency extends to various methodologies, including Agile, Waterfall, & knowledgeable in PMBOK practice. Particularly skilled in Quality, Cost, and Delivery (QCD), as well as in issue and risk management.
+      <div class="container-max grid items-center gap-16 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <p
+            class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-primary-700 shadow-sm sm:px-4 sm:text-sm"
+          >
+            <span class="h-2 w-2 rounded-full bg-primary-500"></span>
+            {{ hero().eyebrow }}
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <!-- About link -->
-           <a href="#about" class="btn-secondary">About
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </a>
-            <!-- Projects services -->
-            <a href="#services" class="btn-primary bg-white text-primary-600 hover:bg-gray-900 text-center">Our Services
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </a>
-            <!-- contacts link -->
-            <a href="#contact" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600 text-center">Get In Touch
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </a>
+          <h1
+            class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl xl:text-6xl"
+          >
+            {{ headline().before
+            }}<span
+              class="box-decoration-clone bg-gradient-to-r from-primary-700 via-primary-600 to-primary-500 bg-clip-text text-transparent"
+              >{{ headline().highlight }}</span
+            >{{ headline().after }}
+          </h1>
 
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl">
+            {{ hero().subtitle }}
+          </p>
+
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="#contact" class="btn-primary justify-center shadow-lg shadow-primary-600/25">
+              Get In Touch
+              <app-icon name="arrow-right" class="h-5 w-5" />
+            </a>
+            <a href="#how-we-work" class="btn-secondary justify-center">See How We Work</a>
+          </div>
+        </div>
+
+        <!-- Brand artwork -->
+        <div
+          aria-hidden="true"
+          class="relative mx-auto hidden w-full max-w-md lg:col-span-5 lg:block"
+        >
+          <div class="relative aspect-square">
+            <div
+              class="absolute inset-0 rounded-full bg-[radial-gradient(closest-side,#ddeefc,rgb(240_247_254/0.6)_60%,transparent)]"
+            ></div>
+            <div class="absolute inset-[4%] rounded-full border border-primary-200/80"></div>
+            <div
+              class="absolute inset-[17%] rounded-full border border-dashed border-primary-300/70"
+            ></div>
+            <span class="absolute left-[12%] top-[17%] h-3 w-3 rounded-full bg-primary-400"></span>
+            <span
+              class="absolute bottom-[9%] right-[24%] h-4 w-4 rounded-full bg-primary-600"
+            ></span>
+            <span
+              class="absolute right-[3%] top-[44%] h-2.5 w-2.5 rounded-full bg-primary-300"
+            ></span>
+            <img
+              [ngSrc]="logo()"
+              width="240"
+              height="240"
+              priority
+              alt=""
+              class="absolute left-1/4 top-1/4 h-1/2 w-1/2 drop-shadow-[0_28px_36px_rgba(8,94,173,0.28)] motion-safe:animate-float"
+            />
           </div>
         </div>
       </div>
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#about" class="text-white hover:text-blue-200 transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </a>
-      </div>
     </section>
-  `
+  `,
 })
 export class HeroComponent {
-  @Input() companyInfo!: CompanyInfo;
+  readonly hero = input.required<Hero>();
+  readonly logo = input.required<string>();
+
+  /** Splits the title so the `highlight` phrase can be styled on its own. */
+  protected readonly headline = computed(() => {
+    const { title, highlight } = this.hero();
+    const start = highlight ? title.indexOf(highlight) : -1;
+    if (start < 0) {
+      return { before: title, highlight: '', after: '' };
+    }
+    return {
+      before: title.slice(0, start),
+      highlight,
+      after: title.slice(start + highlight.length),
+    };
+  });
 }
