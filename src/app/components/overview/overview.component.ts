@@ -16,7 +16,7 @@ import { ServicesComponent } from '../services/services.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
-    <div class="relative isolate overflow-hidden bg-navy-900 text-white">
+    <div data-nav-theme="dark" class="relative isolate overflow-hidden bg-navy-900 text-white">
       <app-backdrop tone="dark" />
 
       <div

@@ -106,6 +106,9 @@ import { IconName } from '../../models/company.model';
         @case ('arrow-right') {
           <path d="M5 12h14M13 6l6 6-6 6" />
         }
+        @case ('arrow-up') {
+          <path d="M12 19V5M6 11l6-6 6 6" />
+        }
         @case ('chevron-right') {
           <path d="m9 5.5 6.5 6.5L9 18.5" />
         }

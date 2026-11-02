@@ -1,59 +1,62 @@
-# Project
+# Innovation Partner website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+Marketing site for **Innovation Partner**, built with Angular 20 and Tailwind CSS 3 and deployed on Vercel.
 
-## Development server
+Live site: https://innovation-partner.vercel.app/
 
-To start a local development server, run:
+## Editing content
 
-```bash
-ng serve
-```
+All page text lives in [`src/assets/company.json`](src/assets/company.json), so most updates need no code changes.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Key | What it controls |
+| --- | --- |
+| `company` | Brand name, footer tagline, logo path |
+| `hero` | Page 1: small label, headline (`highlight` is the blue part), subtitle |
+| `overview` | Page 2 labels and headlines for What We Deliver, How We Work and Client Value |
+| `services` | What We Deliver cards: title, description, illustration (`systems`, `software` or `operations`), tags |
+| `process` | How We Work steps: title, description, icon |
+| `clientValue` | Client Value statements and their icons |
+| `about` | About Us: label, headline, mission, vision, values (with icons) |
+| `contact` | Get In Touch copy, email, phone, location, LinkedIn |
 
-## Code scaffolding
+Icons are referenced by name. The available names are listed in `IconName` in
+[`src/app/models/company.model.ts`](src/app/models/company.model.ts).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Development
 
 ```bash
-ng build
+npm install
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+The dev server runs at http://localhost:4200 and reloads on changes.
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The production build goes to `dist/project/browser`.
 
-## Additional Resources
+## Deployment
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Vercel builds and deploys the site automatically on every push to `main`. Pushes to other branches get
+preview deployments.
+
+## Search engines and analytics
+
+- `public/robots.txt` and `public/sitemap.xml` point at https://innovation-partner.vercel.app. Update both
+  if the site moves to a custom domain.
+- Business details for search engines (schema.org structured data) are generated from `company.json` at
+  runtime by `src/app/services/structured-data.service.ts`.
+- Vercel Web Analytics is wired in `src/index.html`. Turn it on in Vercel under Project > Analytics > Enable.
+
+## Project structure
+
+- `src/app/components/`: one component per page section (hero, overview, about, contact, navbar, footer),
+  plus shared pieces (`backdrop` for section backgrounds, `icon`, `illustration`)
+- `src/app/directives/reveal.directive.ts`: the fade-in-on-scroll animation
+- `src/styles.css`: shared styles; `tailwind.config.js`: brand colours (`primary`, `navy`, `ink`) and the
+  `compact` breakpoint for short laptop screens

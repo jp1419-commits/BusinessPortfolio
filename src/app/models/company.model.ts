@@ -27,6 +27,7 @@ export type IconName =
   | 'pin'
   | 'send'
   | 'arrow-right'
+  | 'arrow-up'
   | 'chevron-right'
   | 'menu'
   | 'close';

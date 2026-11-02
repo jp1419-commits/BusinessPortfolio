@@ -13,6 +13,7 @@ import { IconComponent } from '../icon/icon.component';
   template: `
     <section
       id="contact"
+      data-nav-theme="dark"
       aria-labelledby="contact-title"
       class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 py-24 text-white sm:px-6 lg:px-8 compact:py-12"
     >

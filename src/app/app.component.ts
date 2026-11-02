@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './services/company.service';
+import { StructuredDataService } from './services/structured-data.service';
 import { Company } from './models/company.model';
 
 // Components
@@ -17,7 +17,6 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [
     CommonModule,
-    HttpClientModule,
     NavbarComponent,
     HeroComponent,
     OverviewComponent,
@@ -29,12 +28,18 @@ import { FooterComponent } from './components/footer/footer.component';
   template: `
     <div class="min-h-screen">
       <div *ngIf="companyData; else loading">
-        <app-navbar 
+        <a
+          href="#main"
+          class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-700 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+          Skip to content
+        </a>
+
+        <app-navbar
           [companyName]="companyData.company.name"
           [logo]="companyData.company.logo">
         </app-navbar>
-        
-        <main>
+
+        <main id="main" tabindex="-1" class="focus:outline-none">
           <!-- Page 1 -->
           <app-hero [hero]="companyData.hero" [logo]="companyData.company.logo"></app-hero>
 
@@ -70,12 +75,15 @@ import { FooterComponent } from './components/footer/footer.component';
 export class AppComponent implements OnInit {
   companyData: Company | null = null;
 
+  private readonly structuredData = inject(StructuredDataService);
+
   constructor(private companyService: CompanyService) {}
 
   ngOnInit() {
     this.companyService.getCompanyData().subscribe({
       next: (data) => {
         this.companyData = data;
+        this.structuredData.publishOrganization(data);
       },
       error: (error) => {
         console.error('Error loading company data:', error);
