@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { Hero } from '../../models/company.model';
+import { RevealDirective } from '../../directives/reveal.directive';
 import { IconComponent } from '../icon/icon.component';
 
+/** Page 1: full-screen introduction. */
 @Component({
   selector: 'app-hero',
-  imports: [NgOptimizedImage, IconComponent],
+  imports: [NgOptimizedImage, IconComponent, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
       id="top"
-      class="relative isolate overflow-hidden bg-gradient-to-b from-white via-white to-primary-50 px-4 pb-20 pt-32 sm:px-6 sm:pb-24 lg:px-8 lg:pb-24 lg:pt-40"
+      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden bg-gradient-to-b from-white via-white to-primary-50 px-4 pb-28 pt-28 sm:px-6 lg:px-8"
     >
       <!-- Background: faint grid + the corner ribbons from the brand artwork -->
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
@@ -33,9 +35,10 @@ import { IconComponent } from '../icon/icon.component';
         </svg>
       </div>
 
-      <div class="container-max grid items-center gap-16 lg:grid-cols-12">
+      <div class="container-max grid w-full items-center gap-16 lg:grid-cols-12">
         <div class="lg:col-span-7">
           <p
+            appReveal
             class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-primary-700 shadow-sm sm:px-4 sm:text-sm"
           >
             <span class="h-2 w-2 rounded-full bg-primary-500"></span>
@@ -43,6 +46,7 @@ import { IconComponent } from '../icon/icon.component';
           </p>
 
           <h1
+            [appReveal]="90"
             class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl xl:text-6xl"
           >
             {{ headline().before
@@ -52,11 +56,14 @@ import { IconComponent } from '../icon/icon.component';
             >{{ headline().after }}
           </h1>
 
-          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl">
+          <p
+            [appReveal]="180"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl"
+          >
             {{ hero().subtitle }}
           </p>
 
-          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div [appReveal]="270" class="mt-10 flex flex-col gap-4 sm:flex-row">
             <a href="#contact" class="btn-primary justify-center shadow-lg shadow-primary-600/25">
               Get In Touch
               <app-icon name="arrow-right" class="h-5 w-5" />
@@ -68,7 +75,8 @@ import { IconComponent } from '../icon/icon.component';
         <!-- Brand artwork -->
         <div
           aria-hidden="true"
-          class="relative mx-auto hidden w-full max-w-md lg:col-span-5 lg:block"
+          [appReveal]="150"
+          class="relative mx-auto hidden w-full max-w-md lg:col-span-5 lg:block lg:max-w-[min(28rem,56vh)]"
         >
           <div class="relative aspect-square">
             <div
@@ -96,6 +104,19 @@ import { IconComponent } from '../icon/icon.component';
           </div>
         </div>
       </div>
+
+      <!-- Scroll cue to page 2 -->
+      <a
+        href="#services"
+        [appReveal]="600"
+        aria-label="Scroll to What We Deliver"
+        class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
+      >
+        <span class="flex h-9 w-6 justify-center rounded-full border-2 border-current pt-1.5">
+          <span class="h-2 w-1 rounded-full bg-current motion-safe:animate-scroll-cue"></span>
+        </span>
+        Scroll
+      </a>
     </section>
   `,
 })

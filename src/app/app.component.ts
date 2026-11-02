@@ -7,12 +7,8 @@ import { Company } from './models/company.model';
 // Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { OverviewComponent } from './components/overview/overview.component';
 import { AboutComponent } from './components/about/about.component';
-import { ServicesComponent } from './components/services/services.component';
-import { ProcessComponent } from './components/process/process.component';
-import { ClientValueComponent } from './components/client-value/client-value.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { TeamComponent } from './components/team/team.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -24,12 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     NavbarComponent,
     HeroComponent,
+    OverviewComponent,
     AboutComponent,
-    ServicesComponent,
-    ProcessComponent,
-    ClientValueComponent,
-    ProjectsComponent,
-    TeamComponent,
     ContactComponent,
     FooterComponent
   ],
@@ -43,16 +35,18 @@ import { FooterComponent } from './components/footer/footer.component';
         </app-navbar>
         
         <main>
+          <!-- Page 1 -->
           <app-hero [hero]="companyData.hero" [logo]="companyData.company.logo"></app-hero>
 
-          <app-services [services]="companyData.services"></app-services>
-          <app-process [steps]="companyData.process"></app-process>
-          <app-client-value [values]="companyData.clientValue"></app-client-value>
+          <!-- Page 2: What We Deliver, How We Work, Client Value -->
+          <app-overview
+            [copy]="companyData.overview"
+            [services]="companyData.services"
+            [steps]="companyData.process"
+            [values]="companyData.clientValue">
+          </app-overview>
 
           <app-about [about]="companyData.about"></app-about>
-          <app-projects [projects]="companyData.projects"></app-projects>
-
-          <app-team [team]="companyData.team"></app-team>
           <app-contact [contact]="companyData.contact"></app-contact>
         </main>
 

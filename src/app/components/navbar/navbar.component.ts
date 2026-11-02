@@ -9,7 +9,7 @@ import { IconComponent } from '../icon/icon.component';
   host: { '(document:keydown.escape)': 'closeMobileMenu()' },
   template: `
     <header
-      class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-md"
+      class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-md"
     >
       <nav
         aria-label="Primary"
@@ -85,8 +85,6 @@ export class NavbarComponent {
     { href: '#services', label: 'Services' },
     { href: '#how-we-work', label: 'How We Work' },
     { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#team', label: 'Team' },
   ];
 
   protected readonly mobileMenuOpen = signal(false);

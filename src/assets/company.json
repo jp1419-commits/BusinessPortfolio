@@ -10,6 +10,21 @@
     "highlight": "IT Solutions & Staffing",
     "subtitle": "We combine IT expertise, the right talent, and operational support to deliver innovative and reliable business solutions."
   },
+  "overview": {
+    "services": {
+      "label": "What We Deliver",
+      "title": "Systems, software, and the people to run them.",
+      "intro": "One partner for implementation, custom development, and day-to-day IT operations."
+    },
+    "process": {
+      "label": "How We Work",
+      "title": "A clear path from problem to handover."
+    },
+    "clientValue": {
+      "label": "Client Value",
+      "title": "What you can count on."
+    }
+  },
   "about": {
     "mission": "Driving human-centric innovation and efficiency by providing end-to-end solutions: Software, IT Staffing, Services, and Project Management.",
     "vision": "To unlock global potential. We aim to be the definitive leader in digital transformation, providing the technology that powers organizational success..",
@@ -19,19 +34,19 @@
     {
       "title": "Systems",
       "description": "IT SME Consulting & Implementation Support",
-      "icon": "laptop",
+      "illustration": "systems",
       "tags": ["ERP", "HRIS", "CRM"]
     },
     {
       "title": "Software",
       "description": "Custom Application Development & Enhancements",
-      "icon": "code",
+      "illustration": "software",
       "tags": ["Web", "Mobile", "Desktop"]
     },
     {
       "title": "Operations & Support",
       "description": "Managed IT Operations & Technical Support",
-      "icon": "headset",
+      "illustration": "operations",
       "tags": ["Systems", "Network", "Infrastructure"]
     }
   ],
@@ -67,46 +82,6 @@
     { "title": "A Skilled & Flexible Team", "icon": "team" },
     { "title": "Stable & Efficient Operations", "icon": "chart" },
     { "title": "A Reliable Long\u2011Term Partner", "icon": "shield" }
-  ],
-  "projects": [
-    {
-      "title": "E-commerce Platform",
-      "description": "End-to-end online shopping solution with payment integration, inventory management, and analytics dashboard.",
-      "tech": ["Angular", "Node.js", "MongoDB", "Stripe"],
-      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      "link": "https://github.com/techforge/ecommerce"
-    },
-    {
-      "title": "HR Management System",
-      "description": "A comprehensive web-based HR platform for employee management, payroll processing, and performance tracking.",
-      "tech": ["React", "Django", "PostgreSQL", "Redis"],
-      "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      "link": "https://github.com/techforge/hrms"
-    },
-    {
-      "title": "Healthcare Management App",
-      "description": "Mobile application for healthcare providers to manage patient records, appointments, and medical history.",
-      "tech": ["Flutter", "Firebase", "Node.js", "MongoDB"],
-      "image": "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      "link": "https://github.com/techforge/healthcare"
-    },
-    {
-      "title": "Financial Dashboard",
-      "description": "Real-time financial analytics dashboard with data visualization and automated reporting capabilities.",
-      "tech": ["Vue.js", "Python", "FastAPI", "PostgreSQL"],
-      "image": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      "link": "https://github.com/techforge/finance-dashboard"
-    }
-  ],
-  "team": [
-    {
-      "name": "Joshua Paulo",
-      "role": "IT Project Manager/ IT Consultant/ Software Developer",
-      "photo": "assets/profilepic.png",
-      "linkedin": "https://linkedin.com/in/joshua-paulo-353984b8",
-      "bio": "Visionary IT Leader with a decade experience in tech industry"
-    }
-
   ],
   "contact": {
     "email": "jp1419@gmail.com",

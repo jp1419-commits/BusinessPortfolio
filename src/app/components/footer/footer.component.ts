@@ -44,8 +44,6 @@ import { CompanyInfo, Contact } from '../../models/company.model';
               <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
               <li><a href="#how-we-work" class="text-gray-300 hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
-              <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
-              <li><a href="#team" class="text-gray-300 hover:text-white transition-colors">Team</a></li>
             </ul>
           </div>
           

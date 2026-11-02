@@ -1,22 +1,22 @@
 import { Component, input, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { About } from '../../models/company.model';
-import { TeamMember } from '../../models/company.model';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective],
   template: `   
       <section id="about" class="section-padding bg-gray-100 text-center group">
 
       <div class="container-max">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" appReveal>
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Us</h2>
           <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16" [appReveal]="100">
           <div>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
             <p class="text-lg text-gray-600 leading-relaxed">{{ about.mission }}</p>
@@ -27,7 +27,7 @@ import { TeamMember } from '../../models/company.model';
           </div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center" [appReveal]="150">
           <h3 class="text-2xl font-bold text-gray-900 mb-8">Our Values</h3>
           <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
             <div *ngFor="let value of about.values" 
@@ -54,27 +54,4 @@ import { TeamMember } from '../../models/company.model';
 })
 export class AboutComponent {
   @Input() about!: About;
-}
-export class TeamComponent {
-
-  // ---- THIS IS THE MISSING PIECE ----
-  // Define the 'team' array here
-  team = [
-    {
-      photo: 'assets/images/your-photo.jpg', // <-- IMPORTANT: Change this path!
-      name: 'Your Name',
-      role: 'Software Engineer',
-      bio: 'Passionate developer creating innovative solutions for the web.',
-      linkedin: 'https://linkedin.com/in/your-profile-url'
-    },
-    {
-      photo: 'assets/images/another-person.jpg', // Example of a second member
-      name: 'Jane Doe',
-      role: 'UI/UX Designer',
-      bio: 'Designing beautiful and intuitive user experiences.',
-      linkedin: 'https://linkedin.com/in/jane-doe-url'
-    }
-    // Add more team members as objects here
-  ];
-
 }

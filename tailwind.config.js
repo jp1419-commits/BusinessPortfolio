@@ -25,18 +25,41 @@ module.exports = {
         },
         // Deep navy for headings and the brand wordmark.
         ink: '#0b1b36',
+        // Dark brand surfaces (page 2).
+        navy: {
+          700: '#0f2f5c',
+          800: '#0b2447',
+          900: '#071a33',
+          950: '#050f1f',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      screens: {
+        // Desktop-width but short screens (e.g. 1366×768 and 1536×864 laptops): page 2 tightens to still
+        // fit on one screen.
+        compact: { raw: '(min-width: 1024px) and (max-height: 760px)' },
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        'scroll-cue': {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '70%': { transform: 'translateY(0.6rem)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '0' },
+        },
+        'pulse-ring': {
+          '0%': { transform: 'scale(1)', opacity: '0.6' },
+          '100%': { transform: 'scale(1.7)', opacity: '0' },
+        },
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
+        'scroll-cue': 'scroll-cue 1.8s ease-in-out infinite',
+        'pulse-ring': 'pulse-ring 2.4s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
     },
   },

@@ -1,15 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../../models/company.model';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective],
   template: `
     <section id="contact" class="section-padding bg-gray-900 text-white">
       <div class="container-max">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" appReveal>
           <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
           <div class="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -18,7 +19,7 @@ import { Contact } from '../../models/company.model';
         </div>
         
         <div class="grid md:grid-cols-2 gap-12">
-          <div>
+          <div [appReveal]="100">
             <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
             <div class="space-y-6">
               <div class="flex items-start">
@@ -89,7 +90,7 @@ import { Contact } from '../../models/company.model';
             </div>
           </div>
           
-          <div>
+          <div [appReveal]="200">
             <h3 class="text-2xl font-bold mb-8">Send us a Message</h3>
             <form class="space-y-6">
               <div class="grid md:grid-cols-2 gap-6">

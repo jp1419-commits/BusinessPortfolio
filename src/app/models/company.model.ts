@@ -1,20 +1,17 @@
 export interface Company {
   company: CompanyInfo;
   hero: Hero;
+  /** Labels and headlines for the three blocks on page 2. */
+  overview: Overview;
   about: About;
   services: Service[];
   process: ProcessStep[];
   clientValue: ClientValue[];
-  projects: Project[];
-  team: TeamMember[];
   contact: Contact;
 }
 
 /** Icons available in `IconComponent`; referenced by name from company.json. */
 export type IconName =
-  | 'laptop'
-  | 'code'
-  | 'headset'
   | 'search'
   | 'lightbulb'
   | 'team'
@@ -27,6 +24,9 @@ export type IconName =
   | 'chevron-right'
   | 'menu'
   | 'close';
+
+/** Scenes available in `IllustrationComponent`. */
+export type IllustrationName = 'systems' | 'software' | 'operations';
 
 export interface CompanyInfo {
   name: string;
@@ -53,11 +53,24 @@ export interface About {
   bio: string;
 }
 
+/** Small label plus headline that introduces a block on page 2. */
+export interface SectionCopy {
+  label: string;
+  title: string;
+  intro?: string;
+}
+
+export interface Overview {
+  services: SectionCopy;
+  process: SectionCopy;
+  clientValue: SectionCopy;
+}
+
 /** A "What We Deliver" offering. */
 export interface Service {
   title: string;
   description: string;
-  icon: IconName;
+  illustration: IllustrationName;
   tags: string[];
 }
 
@@ -71,22 +84,6 @@ export interface ProcessStep {
 export interface ClientValue {
   title: string;
   icon: IconName;
-}
-
-export interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  image: string;
-  link: string;
-}
-
-export interface TeamMember {
-  name: string;
-  role: string;
-  photo: string;
-  linkedin: string;
-  bio: string;
 }
 
 export interface Contact {
