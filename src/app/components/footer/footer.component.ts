@@ -133,8 +133,8 @@ export class FooterComponent {
     { href: '#how-we-work', label: 'How We Work' },
     { href: '#roles', label: 'Roles We Staff' },
     { href: '#tech-stack', label: 'Tech Stack' },
-    { href: '#about', label: 'About Us' },
     { href: '#contact', label: 'Get In Touch' },
+    { href: '#about', label: 'About Us' },
   ];
 
   /** tel: links must not contain spaces. */

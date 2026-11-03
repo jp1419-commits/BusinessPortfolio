@@ -21,8 +21,8 @@ const TRACKED_SECTIONS = [
   'how-we-work',
   'roles',
   'tech-stack',
-  'about',
   'contact',
+  'about',
 ];
 
 /** The header shows until the page has scrolled this far (px); then the floating menu takes over. */

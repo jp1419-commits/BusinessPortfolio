@@ -58,8 +58,8 @@ const COMPANY = content as Company;
       <app-roles [roles]="data.roles" />
       <app-tech-stack [stack]="data.techStack" />
 
-      <app-about [about]="data.about" />
       <app-contact [contact]="data.contact" />
+      <app-about [about]="data.about" />
     </main>
 
     <app-footer [companyInfo]="data.company" [contact]="data.contact" />

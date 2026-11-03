@@ -13,7 +13,7 @@ interface Channel {
 }
 
 /**
- * Get In Touch: closing call to action with email and phone cards (dark background).
+ * Get In Touch: call to action with email and phone cards (light background, like About Us).
  * On phones the cards become compact rows so the page fits one screen.
  */
 @Component({
@@ -26,18 +26,20 @@ interface Channel {
       id="contact"
       data-page
       aria-labelledby="contact-title"
-      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 py-24 text-white sm:px-6 lg:px-8 compact:py-12 phone:pb-20 phone:pt-10 short:pb-16 short:pt-6"
+      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8 compact:py-12 phone:pb-20 phone:pt-10 short:pb-16 short:pt-6"
     >
-      <app-backdrop tone="dark" />
+      <app-backdrop tone="light" />
 
       <div class="container-max w-full">
         <div appReveal class="mx-auto max-w-3xl text-center">
-          <h2 id="contact-title" class="section-label justify-center">{{ contact().label }}</h2>
-          <p class="section-statement text-3xl sm:text-4xl lg:text-5xl compact:text-4xl">
+          <h2 id="contact-title" class="section-label justify-center text-primary-600">
+            {{ contact().label }}
+          </h2>
+          <p class="section-statement text-3xl text-ink sm:text-4xl lg:text-5xl compact:text-4xl">
             {{ contact().title }}
           </p>
           <p
-            class="mt-5 text-lg leading-relaxed text-slate-300 phone:mt-3 phone:text-base phone:leading-relaxed"
+            class="mt-5 text-lg leading-relaxed text-slate-600 phone:mt-3 phone:text-base phone:leading-relaxed"
           >
             {{ contact().intro }}
           </p>
@@ -50,21 +52,21 @@ interface Channel {
             <a
               [appReveal]="120 + i * 90"
               [href]="channel.href"
-              class="group relative block overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.09] to-white/[0.02] p-7 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-primary-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 sm:p-8 phone:flex phone:items-center phone:gap-4 phone:rounded-2xl phone:p-4"
+              class="group relative block overflow-hidden rounded-3xl border border-primary-100 bg-white/90 p-7 shadow-xl shadow-primary-900/10 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-2xl hover:shadow-primary-900/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 sm:p-8 phone:flex phone:items-center phone:gap-4 phone:rounded-2xl phone:p-4"
             >
               <span
                 aria-hidden="true"
-                class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary-500/20 blur-2xl transition-opacity duration-300 group-hover:opacity-100 sm:opacity-70"
+                class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary-400/15 blur-2xl transition-opacity duration-300 group-hover:opacity-100 sm:opacity-70"
               ></span>
 
               <span
-                class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 text-white shadow-lg shadow-primary-500/30 phone:h-12 phone:w-12 phone:shrink-0 phone:rounded-xl"
+                class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-lg shadow-primary-600/25 phone:h-12 phone:w-12 phone:shrink-0 phone:rounded-xl"
               >
                 <app-icon [name]="channel.icon" class="h-7 w-7 phone:h-6 phone:w-6" />
               </span>
               <span
                 aria-hidden="true"
-                class="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 transition duration-300 group-hover:border-primary-300 group-hover:bg-primary-500 group-hover:text-white sm:right-8 sm:top-8 phone:right-4 phone:top-1/2 phone:h-9 phone:w-9 phone:-translate-y-1/2"
+                class="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-full border border-primary-200 text-primary-600 transition duration-300 group-hover:border-primary-600 group-hover:bg-primary-600 group-hover:text-white sm:right-8 sm:top-8 phone:right-4 phone:top-1/2 phone:h-9 phone:w-9 phone:-translate-y-1/2"
               >
                 <app-icon
                   name="arrow-right"
@@ -74,17 +76,17 @@ interface Channel {
 
               <span class="relative block phone:min-w-0 phone:flex-1 phone:pr-11">
                 <span
-                  class="mt-7 block text-xs font-semibold uppercase tracking-[0.18em] text-primary-300 phone:mt-0"
+                  class="mt-7 block text-xs font-semibold uppercase tracking-[0.18em] text-primary-600 phone:mt-0"
                 >
                   {{ channel.kicker }}
                 </span>
                 <span
-                  class="mt-2 block text-2xl font-semibold tracking-tight text-white sm:text-3xl phone:mt-0.5 phone:text-xl"
+                  class="mt-2 block text-2xl font-semibold tracking-tight text-ink sm:text-3xl phone:mt-0.5 phone:text-xl"
                 >
                   {{ channel.cta }}
                 </span>
                 <span
-                  class="mt-2 block truncate text-base text-slate-400 phone:mt-0.5 phone:text-sm"
+                  class="mt-2 block truncate text-base text-slate-500 phone:mt-0.5 phone:text-sm"
                 >
                   {{ channel.detail }}
                 </span>
@@ -95,10 +97,10 @@ interface Channel {
 
         <div
           [appReveal]="300"
-          class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-400 phone:mt-6 phone:gap-x-6"
+          class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500 phone:mt-6 phone:gap-x-6"
         >
           <span class="inline-flex items-center gap-2">
-            <app-icon name="pin" class="h-4 w-4 text-primary-300" />
+            <app-icon name="pin" class="h-4 w-4 text-primary-600" />
             @if (contact().address) {
               {{ contact().address }},
             }
@@ -108,10 +110,10 @@ interface Channel {
             [href]="contact().socials.linkedin"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+            class="inline-flex items-center gap-2 rounded transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
           >
             <svg
-              class="h-4 w-4 text-primary-300"
+              class="h-4 w-4 text-primary-600"
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"

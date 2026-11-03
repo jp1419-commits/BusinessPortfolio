@@ -7,7 +7,8 @@ import { IconComponent } from '../icon/icon.component';
 
 /**
  * Roles We Staff: the IT SMEs we provide, grouped by the part of a project they cover, and a
- * closing line for roles not listed. On the light background, between the dark pages around it.
+ * closing line for roles not listed. On the dark brand background, like What We Deliver and Tech
+ * Stack around it.
  * Desktop and tablets show the groups side by side; phones get a sideways carousel so the page
  * fits one screen.
  */
@@ -21,17 +22,17 @@ import { IconComponent } from '../icon/icon.component';
       id="roles"
       data-page
       aria-labelledby="roles-title"
-      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-[clamp(1.5rem,6vh,4rem)] compact:py-6 tight:py-4 phone:pb-14 phone:pt-10 short:pb-10 short:pt-6"
+      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-[clamp(1.5rem,6vh,4rem)] compact:py-6 tight:py-4 phone:pb-14 phone:pt-10 short:pb-10 short:pt-6"
     >
-      <app-backdrop tone="light" />
+      <app-backdrop tone="dark" />
 
       <div class="container-max w-full">
         <div appReveal>
-          <h2 id="roles-title" class="section-label text-primary-600">{{ roles().label }}</h2>
-          <p class="section-statement text-ink">{{ roles().title }}</p>
+          <h2 id="roles-title" class="section-label">{{ roles().label }}</h2>
+          <p class="section-statement">{{ roles().title }}</p>
           @if (roles().intro) {
             <p
-              class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600 tight:hidden short:hidden"
+              class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-300 tight:hidden short:hidden"
             >
               {{ roles().intro }}
             </p>
@@ -47,16 +48,16 @@ import { IconComponent } from '../icon/icon.component';
             @for (group of roles().groups; track group.title; let i = $index) {
               <li
                 [appReveal]="100 + i * 80"
-                class="flex w-[84%] max-w-xs shrink-0 snap-start flex-col rounded-2xl border border-primary-100 bg-white/80 p-5 shadow-sm shadow-primary-900/5 backdrop-blur-sm md:w-auto md:max-w-none md:shrink md:snap-align-none lg:p-6 compact:p-4 phone:p-3.5"
+                class="flex w-[84%] max-w-xs shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-5 md:w-auto md:max-w-none md:shrink md:snap-align-none lg:p-6 compact:p-4 phone:p-3.5"
               >
                 <div class="flex items-center gap-3">
                   <span
-                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md shadow-primary-600/25"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 text-white shadow-md shadow-primary-500/30"
                   >
                     <app-icon [name]="group.icon" class="h-5 w-5" />
                   </span>
                   <h3
-                    class="text-base font-semibold leading-snug text-ink lg:text-lg compact:text-base"
+                    class="text-base font-semibold leading-snug text-white lg:text-lg compact:text-base"
                   >
                     {{ group.title }}
                   </h3>
@@ -67,11 +68,11 @@ import { IconComponent } from '../icon/icon.component';
                 >
                   @for (role of group.roles; track role) {
                     <li
-                      class="flex items-start gap-2.5 text-[15px] font-medium leading-snug text-slate-700 lg:text-base compact:text-[15px]"
+                      class="flex items-start gap-2.5 text-[15px] font-medium leading-snug text-slate-200 lg:text-base compact:text-[15px]"
                     >
                       <span
                         aria-hidden="true"
-                        class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500"
+                        class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary-400"
                       ></span>
                       {{ role }}
                     </li>
@@ -86,7 +87,7 @@ import { IconComponent } from '../icon/icon.component';
             @for (group of roles().groups; track group.title; let i = $index) {
               <button
                 type="button"
-                class="group flex h-6 min-w-6 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                class="group flex h-6 min-w-6 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
                 [attr.aria-label]="'Show ' + group.title"
                 [attr.aria-current]="carousel.active() === i ? 'true' : null"
                 (click)="carousel.show(i)"
@@ -95,8 +96,8 @@ import { IconComponent } from '../icon/icon.component';
                   class="block h-1.5 rounded-full transition-all duration-300"
                   [class]="
                     carousel.active() === i
-                      ? 'w-5 bg-primary-600'
-                      : 'w-1.5 bg-primary-200 group-hover:bg-primary-300'
+                      ? 'w-5 bg-primary-300'
+                      : 'w-1.5 bg-white/30 group-hover:bg-white/60'
                   "
                 ></span>
               </button>
@@ -106,12 +107,12 @@ import { IconComponent } from '../icon/icon.component';
 
         <p
           appReveal
-          class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px] text-slate-600 compact:mt-5 tight:mt-4 phone:mt-5 short:mt-3"
+          class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px] text-slate-300 compact:mt-5 tight:mt-4 phone:mt-5 short:mt-3"
         >
           {{ roles().more }}
           <a
             href="#contact"
-            class="group inline-flex items-center gap-2 rounded font-semibold text-primary-700 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
+            class="group inline-flex items-center gap-2 rounded font-semibold text-primary-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-4 focus-visible:ring-offset-navy-900"
           >
             {{ roles().moreLink }}
             <app-icon
