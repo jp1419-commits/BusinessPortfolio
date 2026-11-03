@@ -86,9 +86,9 @@
     "intro": "Bring in individual IT SMEs or a complete team, matched to your project.",
     "groups": [
       {
-        "title": "Project & analysis",
+        "title": "Project, analysis & design",
         "icon": "clipboard",
-        "roles": ["Technical / IT Project Manager", "IT Business Analyst", "Systems Analyst"]
+        "roles": ["Technical / IT Project Manager", "Scrum Master", "IT Business Analyst", "Systems Analyst", "UI/UX Designer"]
       },
       {
         "title": "Software development",
