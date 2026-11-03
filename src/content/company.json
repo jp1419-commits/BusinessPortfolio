@@ -125,7 +125,7 @@
         "title": "Mobile",
         "icon": "smartphone",
         "frame": "phone",
-        "items": ["Flutter", "Android (Kotlin/Java)", "iOS (Swift)", "React Native"]
+        "items": ["Flutter", "React Native", "Android (Kotlin/Java)", "iOS (Swift)", "SwiftUI", "UIKit", "Objective-C"]
       },
       {
         "title": "Databases & reporting",
