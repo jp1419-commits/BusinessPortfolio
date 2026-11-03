@@ -10,7 +10,7 @@ import { Company } from '../models/company.model';
 export class StructuredDataService {
   private readonly document = inject(DOCUMENT);
 
-  publishOrganization({ company, hero, contact }: Company): void {
+  publishOrganization({ company, hero, contact, techStack }: Company): void {
     const origin = this.document.location.origin;
     const [locality, country] = contact.location.split(',').map((part) => part.trim());
 
@@ -30,6 +30,8 @@ export class StructuredDataService {
         ...(country ? { addressCountry: country } : {}),
       },
       sameAs: [contact.socials.linkedin].filter(Boolean),
+      // Technologies and methods we work with (Tech Stack page).
+      knowsAbout: techStack.groups.flatMap((group) => group.items),
     };
 
     let script = this.document.getElementById('organization-schema');

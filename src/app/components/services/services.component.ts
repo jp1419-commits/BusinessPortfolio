@@ -1,16 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  ElementRef,
-  afterNextRender,
-  inject,
-  input,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { SectionCopy, Service } from '../../models/company.model';
+import { CarouselDirective } from '../../directives/carousel.directive';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { IconComponent } from '../icon/icon.component';
 import { IllustrationComponent } from '../illustration/illustration.component';
@@ -22,7 +13,7 @@ import { IllustrationComponent } from '../illustration/illustration.component';
  */
 @Component({
   selector: 'app-services',
-  imports: [DecimalPipe, IconComponent, IllustrationComponent, RevealDirective],
+  imports: [DecimalPipe, CarouselDirective, IconComponent, IllustrationComponent, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
@@ -56,7 +47,8 @@ import { IllustrationComponent } from '../illustration/illustration.component';
 
       <div class="lg:col-span-8">
         <div
-          #carousel
+          appCarousel
+          #carousel="carousel"
           class="relative -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 py-1 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:p-0 xl:gap-5 [&::-webkit-scrollbar]:hidden"
         >
           @for (service of services(); track service.title; let i = $index) {
@@ -112,13 +104,13 @@ import { IllustrationComponent } from '../illustration/illustration.component';
               type="button"
               class="group flex h-6 min-w-6 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
               [attr.aria-label]="'Show ' + service.title"
-              [attr.aria-current]="activeCard() === i ? 'true' : null"
-              (click)="showCard(i)"
+              [attr.aria-current]="carousel.active() === i ? 'true' : null"
+              (click)="carousel.show(i)"
             >
               <span
                 class="block h-1.5 rounded-full transition-all duration-300"
                 [class]="
-                  activeCard() === i
+                  carousel.active() === i
                     ? 'w-5 bg-primary-300'
                     : 'w-1.5 bg-white/30 group-hover:bg-white/60'
                 "
@@ -133,63 +125,4 @@ import { IllustrationComponent } from '../illustration/illustration.component';
 export class ServicesComponent {
   readonly copy = input.required<SectionCopy>();
   readonly services = input.required<Service[]>();
-
-  /** Card most in view in the phone carousel. */
-  protected readonly activeCard = signal(0);
-
-  private readonly carousel = viewChild.required<ElementRef<HTMLElement>>('carousel');
-  private readonly destroyRef = inject(DestroyRef);
-
-  constructor() {
-    afterNextRender(() => {
-      if (typeof IntersectionObserver === 'undefined') {
-        return;
-      }
-      const carousel = this.carousel().nativeElement;
-      const cards = Array.from(carousel.children);
-
-      // Track the card in view, for the dots.
-      const position = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              this.activeCard.set(cards.indexOf(entry.target));
-            }
-          }
-        },
-        { root: carousel, threshold: 0.6 },
-      );
-      cards.forEach((card) => position.observe(card));
-
-      // Fade all cards in together when the carousel comes into view, including those still
-      // waiting off to the side (they would otherwise only start once swiped to).
-      const reveal = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          cards.forEach((card) => card.classList.add('is-revealed'));
-          reveal.disconnect();
-        }
-      });
-      reveal.observe(carousel);
-
-      this.destroyRef.onDestroy(() => {
-        position.disconnect();
-        reveal.disconnect();
-      });
-    });
-  }
-
-  /** Scrolls the phone carousel to a card. */
-  protected showCard(index: number): void {
-    const carousel = this.carousel().nativeElement;
-    const card = carousel.children[index] as HTMLElement | undefined;
-    if (!card) {
-      return;
-    }
-    const padding = parseFloat(getComputedStyle(carousel).scrollPaddingLeft) || 0;
-    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    carousel.scrollTo({
-      left: card.offsetLeft - padding,
-      behavior: reduceMotion ? 'auto' : 'smooth',
-    });
-  }
 }

@@ -6,6 +6,8 @@ export interface Company {
   about: About;
   services: Service[];
   process: ProcessStep[];
+  /** The Tech Stack page: technologies and project-delivery roles we deliver and staff for. */
+  techStack: TechStack;
   clientValue: ClientValue[];
   contact: Contact;
 }
@@ -26,6 +28,13 @@ export type IconName =
   | 'phone'
   | 'pin'
   | 'send'
+  | 'code'
+  | 'monitor'
+  | 'smartphone'
+  | 'database'
+  | 'cloud'
+  | 'layers'
+  | 'clipboard'
   | 'arrow-right'
   | 'arrow-up'
   | 'chevron-right'
@@ -89,6 +98,30 @@ export interface ProcessStep {
   title: string;
   description: string;
   icon: IconName;
+}
+
+export interface TechStack {
+  label: string;
+  title: string;
+  intro?: string;
+  groups: TechGroup[];
+  /** Closing line for stacks that aren't listed. */
+  more: string;
+  /** Link text after `more`; opens Get In Touch. */
+  moreLink: string;
+}
+
+/** A group of technologies, or a role we staff (e.g. Technical Project Managers). */
+export interface TechGroup {
+  title: string;
+  icon: IconName;
+  /** Technologies, or for a role the methods and tools they work with. */
+  items: string[];
+  /** Highlighted, wider card (used for Technical Project Managers). */
+  featured?: boolean;
+  /** Small label above the title. */
+  kicker?: string;
+  description?: string;
 }
 
 export interface ClientValue {

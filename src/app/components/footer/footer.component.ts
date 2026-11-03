@@ -14,9 +14,9 @@ import { IconComponent } from '../icon/icon.component';
         class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-400/40 to-transparent"
       ></div>
 
-      <div class="container-max py-14 phone:pb-20 phone:pt-10 short:pt-6">
+      <div class="container-max py-14 phone:pb-20 phone:pt-10 short:pt-5">
         <div
-          class="grid gap-10 md:grid-cols-12 phone:grid-cols-2 phone:gap-x-6 phone:gap-y-8 short:gap-y-6"
+          class="grid gap-10 md:grid-cols-12 phone:grid-cols-2 phone:gap-x-6 phone:gap-y-8 short:gap-y-5"
         >
           <div class="md:col-span-5 phone:col-span-2">
             <a
@@ -59,7 +59,7 @@ import { IconComponent } from '../icon/icon.component';
             <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
               Explore
             </h2>
-            <ul class="mt-4 space-y-2.5 phone:mt-3 phone:space-y-2">
+            <ul class="mt-4 space-y-2.5 phone:mt-3 phone:space-y-2 short:space-y-1.5">
               @for (link of links; track link.href) {
                 <li>
                   <a
@@ -106,7 +106,7 @@ import { IconComponent } from '../icon/icon.component';
 
         <!-- Right padding keeps "Back to top" clear of the floating menu button. -->
         <div
-          class="mt-12 flex flex-col-reverse items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:pr-20 phone:mt-8 phone:gap-3 phone:pt-5 short:mt-6"
+          class="mt-12 flex flex-col-reverse items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:pr-20 phone:mt-8 phone:gap-3 phone:pt-5 short:mt-5"
         >
           <p>&copy; {{ currentYear }} {{ companyInfo().name }}. All rights reserved.</p>
           <a
@@ -131,6 +131,7 @@ export class FooterComponent {
   protected readonly links = [
     { href: '#services', label: 'What We Deliver' },
     { href: '#how-we-work', label: 'How We Work' },
+    { href: '#tech-stack', label: 'Tech Stack' },
     { href: '#about', label: 'About Us' },
     { href: '#contact', label: 'Get In Touch' },
   ];

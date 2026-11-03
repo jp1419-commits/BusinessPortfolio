@@ -15,7 +15,7 @@ import { PageScrollService } from '../../services/page-scroll.service';
 import { IconComponent } from '../icon/icon.component';
 
 /** Sections the scroll-spy watches; links whose href matches the active one are highlighted. */
-const TRACKED_SECTIONS = ['top', 'services', 'how-we-work', 'about', 'contact'];
+const TRACKED_SECTIONS = ['top', 'services', 'how-we-work', 'tech-stack', 'about', 'contact'];
 
 /** The header shows until the page has scrolled this far (px); then the floating menu takes over. */
 const HEADER_SCROLL_LIMIT = 120;
@@ -197,6 +197,7 @@ export class NavbarComponent {
   protected readonly links = [
     { href: '#services', label: 'What We Deliver' },
     { href: '#how-we-work', label: 'How We Work' },
+    { href: '#tech-stack', label: 'Tech Stack' },
     { href: '#about', label: 'About' },
   ];
 

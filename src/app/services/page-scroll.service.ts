@@ -489,7 +489,11 @@ export class PageScrollService {
       waitForStill();
     };
 
-    // Back and Forward between in-page links, or a #section typed into the address bar.
+    // Back and Forward between in-page links, or a #section typed into the address bar. The
+    // pages are positioned here, so the browser shouldn't also scroll to the #section itself on
+    // Back/Forward (it would first slide to the section, then this would slide to its page).
+    const previousRestoration = view.history.scrollRestoration;
+    view.history.scrollRestoration = 'manual';
     const onPopState = () =>
       whenSettled(() => {
         const id = decodeURIComponent(view.location.hash.slice(1));
@@ -549,6 +553,7 @@ export class PageScrollService {
     });
 
     return () => {
+      view.history.scrollRestoration = previousRestoration;
       stopAnimation();
       handBack();
       view.clearTimeout(settleTimer);
