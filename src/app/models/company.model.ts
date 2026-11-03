@@ -49,14 +49,6 @@ export interface Hero {
   subtitle: string;
   /** Small label above the Client Value list on the front page. */
   valuesLabel: string;
-  /** Shown on the front page with their initials; leave out to hide. */
-  founder?: Person;
-}
-
-export interface Person {
-  name: string;
-  /** Job title, e.g. "Founder & CEO". */
-  title: string;
 }
 
 export interface About {
