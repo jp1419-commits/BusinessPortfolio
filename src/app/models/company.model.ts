@@ -49,6 +49,17 @@ export interface Hero {
   subtitle: string;
   /** Small label above the Client Value list on the front page. */
   valuesLabel: string;
+  /**
+   * The company's leader (e.g. the CEO), shown on the front page with their initials.
+   * Leave out to hide.
+   */
+  leader?: Person;
+}
+
+export interface Person {
+  name: string;
+  /** Job title, e.g. "CEO". */
+  title: string;
 }
 
 export interface About {

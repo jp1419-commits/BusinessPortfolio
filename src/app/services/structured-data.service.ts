@@ -30,6 +30,9 @@ export class StructuredDataService {
         ...(country ? { addressCountry: country } : {}),
       },
       sameAs: [contact.socials.linkedin].filter(Boolean),
+      ...(hero.leader
+        ? { employee: { '@type': 'Person', name: hero.leader.name, jobTitle: hero.leader.title } }
+        : {}),
     };
 
     let script = this.document.getElementById('organization-schema');
