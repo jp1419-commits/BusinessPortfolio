@@ -13,12 +13,13 @@ import { IconComponent } from '../icon/icon.component';
   template: `
     <section
       id="top"
-      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8 compact:pb-20 compact:pt-20"
+      data-page
+      class="relative isolate flex min-h-screen min-h-svh snap-start snap-always items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8 compact:pb-20 compact:pt-20"
     >
       <app-backdrop tone="light" belowNav />
 
       <div class="container-max grid w-full items-center gap-16 lg:grid-cols-12">
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-8 xl:col-span-7">
           <p
             appReveal
             class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-primary-700 shadow-sm sm:px-4 sm:text-sm"
@@ -74,11 +75,15 @@ import { IconComponent } from '../icon/icon.component';
             </ul>
           </div>
 
-          <div [appReveal]="300" class="mt-8 flex flex-col gap-4 sm:flex-row compact:mt-6">
+          <div
+            [appReveal]="300"
+            class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap compact:mt-6"
+          >
             <a href="#contact" class="btn-primary justify-center shadow-lg shadow-primary-600/25">
               Get In Touch
               <app-icon name="arrow-right" class="h-5 w-5" />
             </a>
+            <a href="#services" class="btn-secondary justify-center">See What We Deliver</a>
             <a href="#how-we-work" class="btn-secondary justify-center">See How We Work</a>
           </div>
         </div>
@@ -87,7 +92,7 @@ import { IconComponent } from '../icon/icon.component';
         <div
           aria-hidden="true"
           [appReveal]="150"
-          class="relative mx-auto hidden w-full max-w-md lg:col-span-5 lg:block lg:max-w-[min(28rem,56vh)]"
+          class="relative mx-auto hidden w-full max-w-md lg:col-span-4 lg:block lg:max-w-[min(28rem,56vh)] xl:col-span-5"
         >
           <div class="relative aspect-square">
             <div

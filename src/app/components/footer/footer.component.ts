@@ -8,7 +8,7 @@ import { IconComponent } from '../icon/icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
-    <footer class="relative bg-navy-950 px-4 text-white sm:px-6 lg:px-8">
+    <footer data-page class="relative snap-end bg-navy-950 px-4 text-white sm:px-6 lg:px-8">
       <div
         aria-hidden="true"
         class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-400/40 to-transparent"

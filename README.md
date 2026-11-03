@@ -62,5 +62,8 @@ preview deployments.
 - `src/app/components/`: one component per page section (hero, overview, about, contact, navbar, footer),
   plus shared pieces (`backdrop` for section backgrounds, `icon`, `illustration`)
 - `src/app/directives/reveal.directive.ts`: the fade-in-on-scroll animation
+- `src/app/services/page-scroll.service.ts`: page-by-page scrolling on desktop, together with the scroll-snap
+  rules in `src/styles.css`. Each full-screen page is an element marked `data-page` with the classes
+  `snap-start snap-always`; a new page needs both to join the paging.
 - `src/styles.css`: shared styles; `tailwind.config.js`: brand colours (`primary`, `navy`, `ink`) and the
   `compact` breakpoint for short laptop screens

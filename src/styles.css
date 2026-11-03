@@ -21,6 +21,18 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /*
+   * "Magnetic" page-by-page scrolling: each full-screen page snaps to the top in the direction
+   * you scroll. Gentle on small screens, where a page can be taller than the screen...
+   */
+  scroll-snap-type: y proximity;
+}
+
+/* ...and strict on desktop, where every page fits one screen. */
+@media (min-width: 1024px) and (min-height: 600px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

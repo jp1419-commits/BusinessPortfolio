@@ -21,8 +21,9 @@ interface Channel {
   template: `
     <section
       id="contact"
+      data-page
       aria-labelledby="contact-title"
-      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 py-24 text-white sm:px-6 lg:px-8 compact:py-12"
+      class="relative isolate flex min-h-screen min-h-svh snap-start snap-always items-center overflow-hidden px-4 py-24 text-white sm:px-6 lg:px-8 compact:py-12"
     >
       <app-backdrop tone="dark" />
 

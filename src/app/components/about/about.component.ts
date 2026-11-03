@@ -13,8 +13,9 @@ import { IconComponent } from '../icon/icon.component';
   template: `
     <section
       id="about"
+      data-page
       aria-labelledby="about-title"
-      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8"
+      class="relative isolate flex min-h-screen min-h-svh snap-start snap-always items-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8"
     >
       <app-backdrop tone="light" />
 

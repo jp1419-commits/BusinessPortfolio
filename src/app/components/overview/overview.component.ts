@@ -15,7 +15,10 @@ import { ServicesComponent } from '../services/services.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
-    <div class="relative isolate overflow-hidden bg-navy-900 text-white">
+    <div
+      data-page
+      class="relative isolate snap-start snap-always overflow-hidden bg-navy-900 text-white"
+    >
       <app-backdrop tone="dark" />
 
       <div

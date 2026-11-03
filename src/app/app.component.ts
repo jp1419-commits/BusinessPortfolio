@@ -1,6 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  afterNextRender,
+  inject,
+} from '@angular/core';
 import content from '../content/company.json';
 import { Company } from './models/company.model';
+import { PageScrollService } from './services/page-scroll.service';
 import { StructuredDataService } from './services/structured-data.service';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -53,5 +60,10 @@ export class AppComponent {
 
   constructor() {
     inject(StructuredDataService).publishOrganization(this.data);
+
+    // Desktop page-by-page scrolling (see PageScrollService and the snap rules in styles.css).
+    const pageScroll = inject(PageScrollService);
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => destroyRef.onDestroy(pageScroll.enable()));
   }
 }
