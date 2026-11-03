@@ -3,7 +3,6 @@ import {
   Component,
   DestroyRef,
   ElementRef,
-  NgZone,
   afterNextRender,
   computed,
   inject,
@@ -12,6 +11,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { DOCUMENT, NgOptimizedImage } from '@angular/common';
+import { PageScrollService } from '../../services/page-scroll.service';
 import { IconComponent } from '../icon/icon.component';
 
 /** Sections the scroll-spy watches; links whose href matches the active one are highlighted. */
@@ -92,6 +92,7 @@ const HEADER_SCROLL_LIMIT = 120;
       <!-- Mobile menu -->
       <div
         id="mobile-menu"
+        data-no-paging
         class="border-t border-slate-200/70 bg-white shadow-lg shadow-slate-900/5 lg:hidden"
         [class.hidden]="!mobileMenuOpen()"
       >
@@ -119,7 +120,7 @@ const HEADER_SCROLL_LIMIT = 120;
     <!-- Floating menu: replaces the header once the page is scrolled -->
     <div
       #floatingRoot
-      class="fixed bottom-5 right-5 z-50 transition-[transform,opacity,visibility] duration-300 motion-reduce:transition-none sm:bottom-6 sm:right-6"
+      class="fixed bottom-4 right-4 z-50 transition-[transform,opacity,visibility] duration-300 motion-reduce:transition-none sm:bottom-6 sm:right-6"
       [class]="
         scrolled() ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-4 opacity-0'
       "
@@ -128,8 +129,9 @@ const HEADER_SCROLL_LIMIT = 120;
         #floatingMenu
         id="floating-menu"
         aria-label="Site"
+        data-no-paging
         [inert]="!floatingMenuOpen()"
-        class="absolute bottom-[4.5rem] right-0 w-64 origin-bottom-right rounded-2xl bg-navy-950/95 p-2 text-white shadow-2xl shadow-navy-950/40 ring-1 ring-white/10 backdrop-blur-md transition duration-200 motion-reduce:transition-none"
+        class="absolute bottom-16 right-0 w-64 origin-bottom-right sm:bottom-[4.5rem] rounded-2xl bg-navy-950/95 p-2 text-white shadow-2xl shadow-navy-950/40 ring-1 ring-white/10 backdrop-blur-md transition duration-200 motion-reduce:transition-none"
         [class]="
           floatingMenuOpen() ? 'scale-100 opacity-100' : 'pointer-events-none scale-95 opacity-0'
         "
@@ -181,7 +183,7 @@ const HEADER_SCROLL_LIMIT = 120;
         [attr.aria-expanded]="floatingMenuOpen()"
         [attr.aria-label]="floatingMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
         (click)="toggleFloatingMenu()"
-        class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-xl shadow-primary-900/30 ring-4 ring-white/25 transition duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-primary-300"
+        class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br sm:h-14 sm:w-14 from-primary-500 to-primary-700 text-white shadow-xl shadow-primary-900/30 ring-4 ring-white/25 transition duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-primary-300"
       >
         <app-icon [name]="floatingMenuOpen() ? 'close' : 'menu'" class="h-6 w-6" />
       </button>
@@ -215,7 +217,7 @@ export class NavbarComponent {
 
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly zone = inject(NgZone);
+  private readonly pageScroll = inject(PageScrollService);
 
   constructor() {
     afterNextRender(() => {
@@ -226,7 +228,7 @@ export class NavbarComponent {
 
       // Header at the top, floating button further down.
       const onScroll = () => {
-        const scrolled = view.scrollY > HEADER_SCROLL_LIMIT;
+        const scrolled = this.pageScroll.scrollTop() > HEADER_SCROLL_LIMIT;
         if (scrolled !== this.scrolled()) {
           this.scrolled.set(scrolled);
           this.mobileMenuOpen.set(false);
@@ -234,10 +236,7 @@ export class NavbarComponent {
         }
       };
       onScroll();
-      this.zone.runOutsideAngular(() =>
-        view.addEventListener('scroll', onScroll, { passive: true }),
-      );
-      this.destroyRef.onDestroy(() => view.removeEventListener('scroll', onScroll));
+      this.destroyRef.onDestroy(this.pageScroll.onScroll(onScroll));
 
       // Scroll-spy: whichever section crosses a reading line about a quarter of the way down
       // (high enough that a section reached from the menu counts, even on the compact page 2).

@@ -5,7 +5,10 @@ import { RevealDirective } from '../../directives/reveal.directive';
 import { BackdropComponent } from '../backdrop/backdrop.component';
 import { IconComponent } from '../icon/icon.component';
 
-/** Page 1: full-screen introduction, including the Client Value points. */
+/**
+ * Page 1: full-screen introduction, including the Client Value points.
+ * Like every page it fits one screen, so phones get a tighter version of the same layout.
+ */
 @Component({
   selector: 'app-hero',
   imports: [NgOptimizedImage, BackdropComponent, IconComponent, RevealDirective],
@@ -14,7 +17,7 @@ import { IconComponent } from '../icon/icon.component';
     <section
       id="top"
       data-page
-      class="relative isolate flex min-h-screen min-h-svh snap-start snap-always items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8 compact:pb-20 compact:pt-20"
+      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8 compact:pb-20 compact:pt-20 tight:pb-8 tight:pt-[5.25rem] phone:pb-16 phone:pt-[5.5rem] short:pb-4 short:pt-20"
     >
       <app-backdrop tone="light" belowNav />
 
@@ -22,7 +25,7 @@ import { IconComponent } from '../icon/icon.component';
         <div class="lg:col-span-8 xl:col-span-7">
           <p
             appReveal
-            class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-primary-700 shadow-sm sm:px-4 sm:text-sm"
+            class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-primary-700 shadow-sm sm:px-4 sm:text-sm short:hidden"
           >
             <span class="h-2 w-2 rounded-full bg-primary-500"></span>
             {{ hero().eyebrow }}
@@ -30,7 +33,7 @@ import { IconComponent } from '../icon/icon.component';
 
           <h1
             [appReveal]="90"
-            class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl xl:text-6xl compact:mt-4 compact:text-5xl"
+            class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl xl:text-6xl compact:mt-4 compact:text-5xl tight:text-[2.75rem] phone:mt-4 phone:text-[2rem] phone:leading-[1.1] short:mt-0"
           >
             {{ headline().before
             }}<span
@@ -41,13 +44,16 @@ import { IconComponent } from '../icon/icon.component';
 
           <p
             [appReveal]="180"
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl compact:mt-4 compact:text-lg"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl compact:mt-4 compact:text-lg tight:mt-3 phone:mt-3 phone:text-[15px] short:mt-2 short:text-sm"
           >
             {{ hero().subtitle }}
           </p>
 
           <!-- Client Value -->
-          <div [appReveal]="240" class="mt-8 max-w-2xl compact:mt-5">
+          <div
+            [appReveal]="240"
+            class="mt-8 max-w-2xl compact:mt-5 tight:mt-4 phone:mt-5 short:mt-3"
+          >
             <h2
               class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-700"
             >
@@ -57,17 +63,19 @@ import { IconComponent } from '../icon/icon.component';
               ></span>
               {{ hero().valuesLabel }}
             </h2>
-            <ul class="mt-3 grid grid-cols-2 gap-2.5">
+            <ul class="mt-3 grid grid-cols-2 gap-2.5 phone:mt-2.5 phone:gap-2">
               @for (item of values(); track item.title) {
                 <li
-                  class="flex flex-col items-start gap-2 rounded-2xl border border-primary-100 bg-white/80 p-3 shadow-sm shadow-primary-900/5 backdrop-blur-sm sm:flex-row sm:items-center sm:gap-3 sm:p-2.5 sm:pr-4"
+                  class="flex flex-col items-start gap-2 rounded-2xl border border-primary-100 bg-white/80 p-3 shadow-sm shadow-primary-900/5 backdrop-blur-sm sm:flex-row sm:items-center sm:gap-3 sm:p-2.5 sm:pr-4 phone:flex-row phone:items-center phone:gap-2.5 phone:rounded-xl phone:p-2 phone:pr-2.5"
                 >
                   <span
-                    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md shadow-primary-600/25"
+                    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md shadow-primary-600/25 phone:h-8 phone:w-8 phone:rounded-lg"
                   >
-                    <app-icon [name]="item.icon" class="h-5 w-5" />
+                    <app-icon [name]="item.icon" class="h-5 w-5 phone:h-[18px] phone:w-[18px]" />
                   </span>
-                  <span class="text-[13px] font-semibold leading-snug text-ink sm:text-sm">
+                  <span
+                    class="text-[13px] font-semibold leading-snug text-ink sm:text-sm phone:text-[12.5px] phone:leading-tight"
+                  >
                     {{ item.title }}
                   </span>
                 </li>
@@ -77,14 +85,27 @@ import { IconComponent } from '../icon/icon.component';
 
           <div
             [appReveal]="300"
-            class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap compact:mt-6"
+            class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap compact:mt-6 tight:mt-5 phone:mt-5 phone:grid phone:grid-cols-2 phone:gap-2.5 short:mt-4"
           >
-            <a href="#contact" class="btn-primary justify-center shadow-lg shadow-primary-600/25">
+            <a
+              href="#contact"
+              class="btn-primary justify-center shadow-lg shadow-primary-600/25 phone:col-span-2"
+            >
               Get In Touch
               <app-icon name="arrow-right" class="h-5 w-5" />
             </a>
-            <a href="#services" class="btn-secondary justify-center">See What We Deliver</a>
-            <a href="#how-we-work" class="btn-secondary justify-center">See How We Work</a>
+            <a
+              href="#services"
+              class="btn-secondary justify-center phone:px-2 phone:py-2.5 phone:text-sm"
+            >
+              See What We Deliver
+            </a>
+            <a
+              href="#how-we-work"
+              class="btn-secondary justify-center phone:px-2 phone:py-2.5 phone:text-sm"
+            >
+              See How We Work
+            </a>
           </div>
         </div>
 
@@ -121,17 +142,24 @@ import { IconComponent } from '../icon/icon.component';
         </div>
       </div>
 
-      <!-- Scroll cue to page 2 -->
+      <!-- Cue to page 2: a mouse on desktops, "Swipe up" on touch screens -->
       <a
         href="#services"
         [appReveal]="600"
         aria-label="Scroll to What We Deliver"
-        class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full compact:bottom-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
+        class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4 compact:bottom-3 tight:hidden phone:bottom-4 phone:gap-1.5 short:hidden"
       >
-        <span class="flex h-9 w-6 justify-center rounded-full border-2 border-current pt-1.5">
+        <span
+          class="flex h-9 w-6 justify-center rounded-full border-2 border-current pt-1.5 touch:hidden"
+        >
           <span class="h-2 w-1 rounded-full bg-current motion-safe:animate-scroll-cue"></span>
         </span>
-        Scroll
+        <app-icon
+          name="arrow-up"
+          class="hidden h-4 w-4 motion-safe:animate-swipe-cue touch:block"
+        />
+        <span class="touch:hidden">Scroll</span>
+        <span class="hidden touch:inline">Swipe up</span>
       </a>
     </section>
   `,

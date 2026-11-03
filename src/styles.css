@@ -19,26 +19,42 @@ body {
   color: #38485f;
 }
 
-html {
+/*
+ * Page-by-page ("Reels-style") scrolling. The pages scroll inside the app root rather than the
+ * browser window, so phone browsers keep their toolbars still and every page fills exactly one
+ * screen. PageScrollService flips one page per swipe, wheel step or key press; the snapping
+ * below keeps everything else (scrollbar, find-in-page, resizing) lined up with a page.
+ */
+.page-scroller {
+  position: fixed;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  /* Pages stay put on their own; no automatic nudges when content above changes size. */
+  overflow-anchor: none;
   scroll-behavior: smooth;
-  /*
-   * "Magnetic" page-by-page scrolling: each full-screen page snaps to the top in the direction
-   * you scroll. Gentle on small screens, where a page can be taller than the screen...
-   */
+  /* Gentle on very short screens (e.g. phones held sideways), where pages overflow... */
   scroll-snap-type: y proximity;
 }
 
-/* ...and strict on desktop, where every page fits one screen. */
-@media (min-width: 1024px) and (min-height: 600px) {
-  html {
+/* ...and strict wherever pages fit one screen. */
+@media (min-height: 540px) {
+  .page-scroller {
     scroll-snap-type: y mandatory;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  .page-scroller {
     scroll-behavior: auto;
   }
+}
+
+/* Sections focused after an in-page link (for screen readers) need no focus ring. */
+[data-page][tabindex='-1']:focus,
+section[tabindex='-1']:focus {
+  outline: none;
 }
 
 .section-padding {
@@ -47,14 +63,6 @@ html {
 
 .container-max {
   @apply max-w-7xl mx-auto;
-}
-
-.btn-primary {
-  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
-}
-
-.btn-secondary {
-  @apply bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
 }
 
 .card {
@@ -70,6 +78,15 @@ html {
 }
 
 @layer components {
+  /* Buttons. In the components layer so utilities can adjust them (e.g. smaller on phones). */
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+
   /*
    * Label naming a section, e.g. "—— WHAT WE DELIVER". It stays smaller than the
    * `.section-statement` headline beneath it at every breakpoint. Light sections recolor
@@ -181,5 +198,11 @@ html {
 @media print {
   .reveal {
     animation: none !important;
+  }
+
+  /* Print every page, not just the screen in view. */
+  .page-scroller {
+    position: static;
+    overflow: visible;
   }
 }

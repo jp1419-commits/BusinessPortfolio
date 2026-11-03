@@ -38,6 +38,14 @@
       document.head.appendChild(script);
     })();
   </script>
+  <!-- Links to a section (e.g. /#how-we-work) open the page that contains it (see PageScrollService).
+       Set the #section aside so the browser doesn't jump to the section itself first. -->
+  <script>
+    if (location.hash.length > 1) {
+      document.documentElement.setAttribute('data-initial-hash', location.hash);
+      history.replaceState(history.state, '', location.pathname + location.search);
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>

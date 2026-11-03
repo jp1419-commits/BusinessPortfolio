@@ -62,8 +62,13 @@ preview deployments.
 - `src/app/components/`: one component per page section (hero, overview, about, contact, navbar, footer),
   plus shared pieces (`backdrop` for section backgrounds, `icon`, `illustration`)
 - `src/app/directives/reveal.directive.ts`: the fade-in-on-scroll animation
-- `src/app/services/page-scroll.service.ts`: page-by-page scrolling on desktop, together with the scroll-snap
-  rules in `src/styles.css`. Each full-screen page is an element marked `data-page` with the classes
-  `snap-start snap-always`; a new page needs both to join the paging.
-- `src/styles.css`: shared styles; `tailwind.config.js`: brand colours (`primary`, `navy`, `ink`) and the
-  `compact` breakpoint for short laptop screens
+- `src/app/services/page-scroll.service.ts`: Reels-style page flipping. The slightest swipe, mouse wheel or
+  trackpad gesture, or arrow key moves exactly one page, and in-page links open the page that contains their
+  section. The pages scroll inside the app root (`.page-scroller` in `src/styles.css`), so phone browsers
+  keep their toolbars still and each page fills exactly one screen.
+- Pages: each full-screen page is an element marked `data-page` with the classes `snap-start snap-always`. A
+  new page needs both, and should fit one screen at every size. On phones and tablets, What We Deliver and
+  How We Work are separate pages; on desktop they share page 2.
+- `src/styles.css`: shared styles. `tailwind.config.js`: brand colours (`primary`, `navy`, `ink`) and the
+  breakpoints that keep pages within one screen: `phone` (narrower than 640px), `short` (phones and tablets
+  up to 640px tall), and `compact` and `tight` (laptops up to 760px and 640px tall).

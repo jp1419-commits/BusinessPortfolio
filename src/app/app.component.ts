@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
+  ElementRef,
   afterNextRender,
   inject,
 } from '@angular/core';
@@ -31,6 +32,8 @@ const COMPANY = content as Company;
     FooterComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // The pages scroll inside the app root (see `.page-scroller` in styles.css).
+  host: { class: 'page-scroller' },
   template: `
     <a
       href="#main"
@@ -61,8 +64,10 @@ export class AppComponent {
   constructor() {
     inject(StructuredDataService).publishOrganization(this.data);
 
-    // Desktop page-by-page scrolling (see PageScrollService and the snap rules in styles.css).
+    // Page-by-page scrolling (see PageScrollService). Registered before the child components
+    // are created, so the navbar can follow the scroll position.
     const pageScroll = inject(PageScrollService);
+    pageScroll.attach(inject<ElementRef<HTMLElement>>(ElementRef).nativeElement);
     const destroyRef = inject(DestroyRef);
     afterNextRender(() => destroyRef.onDestroy(pageScroll.enable()));
   }

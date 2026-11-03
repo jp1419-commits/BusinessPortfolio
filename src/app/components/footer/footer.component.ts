@@ -14,9 +14,11 @@ import { IconComponent } from '../icon/icon.component';
         class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-400/40 to-transparent"
       ></div>
 
-      <div class="container-max py-14">
-        <div class="grid gap-10 md:grid-cols-12">
-          <div class="md:col-span-5">
+      <div class="container-max py-14 phone:pb-20 phone:pt-10 short:pt-6">
+        <div
+          class="grid gap-10 md:grid-cols-12 phone:grid-cols-2 phone:gap-x-6 phone:gap-y-8 short:gap-y-6"
+        >
+          <div class="md:col-span-5 phone:col-span-2">
             <a
               href="#top"
               class="inline-flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-4 focus-visible:ring-offset-navy-950"
@@ -33,7 +35,7 @@ import { IconComponent } from '../icon/icon.component';
                 {{ companyInfo().name }}
               </span>
             </a>
-            <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+            <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400 phone:mt-3 short:mt-2">
               {{ companyInfo().tagline }}
             </p>
             <a
@@ -41,7 +43,7 @@ import { IconComponent } from '../icon/icon.component';
               target="_blank"
               rel="noopener noreferrer"
               [attr.aria-label]="companyInfo().name + ' on LinkedIn'"
-              class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-primary-400/40 hover:bg-primary-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+              class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-primary-400/40 hover:bg-primary-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 phone:mt-4 short:mt-3"
             >
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path
@@ -57,7 +59,7 @@ import { IconComponent } from '../icon/icon.component';
             <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
               Explore
             </h2>
-            <ul class="mt-4 space-y-2.5">
+            <ul class="mt-4 space-y-2.5 phone:mt-3 phone:space-y-2">
               @for (link of links; track link.href) {
                 <li>
                   <a
@@ -75,7 +77,7 @@ import { IconComponent } from '../icon/icon.component';
             <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
               Contact
             </h2>
-            <ul class="mt-4 space-y-3 text-sm">
+            <ul class="mt-4 space-y-3 text-sm phone:mt-3 phone:space-y-2.5">
               <li>
                 <a
                   [href]="'mailto:' + contact().email"
@@ -102,8 +104,9 @@ import { IconComponent } from '../icon/icon.component';
           </div>
         </div>
 
+        <!-- Right padding keeps "Back to top" clear of the floating menu button. -->
         <div
-          class="mt-12 flex flex-col-reverse items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row"
+          class="mt-12 flex flex-col-reverse items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:pr-20 phone:mt-8 phone:gap-3 phone:pt-5 short:mt-6"
         >
           <p>&copy; {{ currentYear }} {{ companyInfo().name }}. All rights reserved.</p>
           <a
