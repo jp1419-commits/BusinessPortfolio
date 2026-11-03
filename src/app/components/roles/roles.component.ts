@@ -21,7 +21,7 @@ import { IconComponent } from '../icon/icon.component';
       id="roles"
       data-page
       aria-labelledby="roles-title"
-      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-[clamp(1.5rem,6vh,4rem)] compact:py-6 tight:py-4 phone:pb-14 phone:pt-10 short:pb-12 short:pt-6"
+      class="relative isolate flex min-h-screen min-h-dvh snap-start snap-always items-center overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-[clamp(1.5rem,6vh,4rem)] compact:py-6 tight:py-4 phone:pb-14 phone:pt-10 short:pb-10 short:pt-6"
     >
       <app-backdrop tone="light" />
 
@@ -47,7 +47,7 @@ import { IconComponent } from '../icon/icon.component';
             @for (group of roles().groups; track group.title; let i = $index) {
               <li
                 [appReveal]="100 + i * 80"
-                class="flex w-[84%] max-w-xs shrink-0 snap-start flex-col rounded-2xl border border-primary-100 bg-white/80 p-5 shadow-sm shadow-primary-900/5 backdrop-blur-sm md:w-auto md:max-w-none md:shrink md:snap-align-none lg:p-6 compact:p-4 phone:p-4"
+                class="flex w-[84%] max-w-xs shrink-0 snap-start flex-col rounded-2xl border border-primary-100 bg-white/80 p-5 shadow-sm shadow-primary-900/5 backdrop-blur-sm md:w-auto md:max-w-none md:shrink md:snap-align-none lg:p-6 compact:p-4 phone:p-3.5"
               >
                 <div class="flex items-center gap-3">
                   <span
@@ -62,7 +62,7 @@ import { IconComponent } from '../icon/icon.component';
                   </h3>
                 </div>
                 <ul
-                  class="mt-4 space-y-2.5 lg:mt-5 lg:space-y-3 compact:mt-3 compact:space-y-2"
+                  class="mt-4 space-y-2.5 lg:mt-5 lg:space-y-3 compact:mt-3 compact:space-y-2 phone:mt-3 phone:space-y-2 short:space-y-1.5"
                   [attr.aria-label]="group.title"
                 >
                   @for (role of group.roles; track role) {
