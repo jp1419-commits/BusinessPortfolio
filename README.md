@@ -17,7 +17,7 @@ changes. The file is built into the app, so the page shows instantly; edits go l
 | `services` | What We Deliver cards: title, description, illustration (`systems`, `software` or `operations`), tags |
 | `process` | How We Work steps: title, description, icon |
 | `roles` | Roles We Staff page: label, headline, intro, the role groups (title, icon, roles), and the closing line for roles not listed (`more`, `moreLink`) |
-| `techStack` | Tech Stack page: label, headline, intro, the technology groups (title, icon, items), and the closing line for anything not listed (`more`, `moreLink`) |
+| `techStack` | Tech Stack page: label, headline, intro, the technology groups (title, icon, items, and `frame`: what the card is drawn as, `editor`, `browser`, `phone`, `sheet`, `rack` or `board`; a board also takes `columns`, which the items fill in order), and the closing line for anything not listed (`more`, `moreLink`) |
 | `clientValue` | Client Value statements and their icons, shown on page 1 |
 | `about` | About Us: label, headline, mission, vision, values (with icons) |
 | `contact` | Get In Touch headline and intro, the email and phone card wording (`emailCta`, `phoneCta`), email, phone, location, LinkedIn |

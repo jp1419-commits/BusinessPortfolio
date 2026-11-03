@@ -4,16 +4,24 @@ import { CarouselDirective } from '../../directives/carousel.directive';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { BackdropComponent } from '../backdrop/backdrop.component';
 import { IconComponent } from '../icon/icon.component';
+import { TechCardComponent } from '../tech-card/tech-card.component';
 
 /**
  * Tech Stack: the technologies and tools we deliver with and staff for, in groups, and a closing
- * line for anything not listed. (The roles themselves are on the Roles We Staff page.)
+ * line for anything not listed. (The roles themselves are on the Roles We Staff page.) Each group's
+ * card is drawn as what it represents (see TechCardComponent).
  * Desktop and tablets show the groups as a grid; phones get a sideways carousel (like What We
  * Deliver) so the page fits one screen.
  */
 @Component({
   selector: 'app-tech-stack',
-  imports: [BackdropComponent, CarouselDirective, IconComponent, RevealDirective],
+  imports: [
+    BackdropComponent,
+    CarouselDirective,
+    IconComponent,
+    RevealDirective,
+    TechCardComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
@@ -47,27 +55,9 @@ import { IconComponent } from '../icon/icon.component';
             @for (group of stack().groups; track group.title; let i = $index) {
               <li
                 [appReveal]="100 + i * 60"
-                class="flex w-[84%] max-w-xs shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-4 md:w-auto md:max-w-none md:shrink md:snap-align-none compact:p-3.5"
+                class="flex w-[84%] max-w-xs shrink-0 snap-start md:w-auto md:max-w-none md:shrink md:snap-align-none"
               >
-                <div class="flex items-center gap-3">
-                  <span
-                    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-500/15 text-primary-300 ring-1 ring-inset ring-white/10"
-                  >
-                    <app-icon [name]="group.icon" class="h-5 w-5" />
-                  </span>
-                  <h3 class="text-[15px] font-semibold leading-snug text-white">
-                    {{ group.title }}
-                  </h3>
-                </div>
-                <ul class="mt-3 flex flex-wrap gap-1.5" [attr.aria-label]="group.title">
-                  @for (item of group.items; track item) {
-                    <li
-                      class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs font-medium text-slate-200"
-                    >
-                      {{ item }}
-                    </li>
-                  }
-                </ul>
+                <app-tech-card [group]="group" />
               </li>
             }
           </ul>

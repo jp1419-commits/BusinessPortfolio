@@ -135,6 +135,10 @@ import { IconName } from '../../models/company.model';
           <rect x="9" y="2.75" width="6" height="3.25" rx="1" />
           <path d="m9 13.25 2.25 2.25L15.5 11" />
         }
+        @case ('lock') {
+          <rect x="5" y="10.5" width="14" height="10" rx="2" />
+          <path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3" />
+        }
         @case ('arrow-right') {
           <path d="M5 12h14M13 6l6 6-6 6" />
         }

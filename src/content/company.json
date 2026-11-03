@@ -112,32 +112,39 @@
       {
         "title": "Back end & desktop",
         "icon": "code",
+        "frame": "editor",
         "items": ["C#", "VB.NET", ".NET", "ASP.NET", "Java", "PHP", "Laravel", "Node.js", "Python"]
       },
       {
         "title": "Web",
         "icon": "monitor",
+        "frame": "browser",
         "items": ["Angular", "React", "Vue.js", "TypeScript", "JavaScript"]
       },
       {
         "title": "Mobile",
         "icon": "smartphone",
+        "frame": "phone",
         "items": ["Flutter", "Android (Kotlin/Java)", "iOS (Swift)", "React Native"]
       },
       {
         "title": "Databases & reporting",
         "icon": "database",
+        "frame": "sheet",
         "items": ["SQL Server", "MySQL", "PostgreSQL", "Oracle Database", "MongoDB", "Power BI", "Crystal Reports"]
       },
       {
         "title": "Cloud & infrastructure",
         "icon": "cloud",
+        "frame": "rack",
         "items": ["Microsoft Azure", "AWS", "Google Cloud", "Docker", "Kubernetes", "Git", "Windows Server", "Linux", "Microsoft 365"]
       },
       {
         "title": "Project delivery",
         "icon": "clipboard",
-        "items": ["Agile / Scrum", "Kanban", "Waterfall & hybrid", "Jira", "Confluence", "Azure DevOps", "MS Project"]
+        "frame": "board",
+        "columns": ["Plan", "Track", "Share"],
+        "items": ["Agile / Scrum", "Kanban", "Waterfall & hybrid", "Jira", "Azure DevOps", "MS Project", "Confluence"]
       }
     ],
     "more": "Don't see your stack? We'll find the right IT SMEs for it.",

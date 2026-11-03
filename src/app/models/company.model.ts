@@ -37,6 +37,7 @@ export type IconName =
   | 'cloud'
   | 'layers'
   | 'clipboard'
+  | 'lock'
   | 'arrow-right'
   | 'arrow-up'
   | 'chevron-right'
@@ -118,7 +119,17 @@ export interface TechGroup {
   title: string;
   icon: IconName;
   items: string[];
+  /** What the card is drawn as; leave out for a plain card. */
+  frame?: TechFrame;
+  /** `board` frame only: column titles. The items fill the columns in order, evenly. */
+  columns?: string[];
 }
+
+/**
+ * Tech Stack card designs, each showing what its group represents: a code editor, a browser
+ * window, a phone, a spreadsheet, a server rack or a task board.
+ */
+export type TechFrame = 'editor' | 'browser' | 'phone' | 'sheet' | 'rack' | 'board';
 
 export interface StaffingRoles {
   label: string;
