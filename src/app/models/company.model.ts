@@ -1,7 +1,7 @@
 export interface Company {
   company: CompanyInfo;
   hero: Hero;
-  /** Labels and headlines for the three blocks on page 2. */
+  /** Labels and headlines for the blocks on page 2 (What We Deliver, How We Work). */
   overview: Overview;
   about: About;
   services: Service[];
@@ -47,6 +47,8 @@ export interface Hero {
   /** Part of `title` rendered in the brand gradient. */
   highlight: string;
   subtitle: string;
+  /** Small label above the Client Value list on the front page. */
+  valuesLabel: string;
 }
 
 export interface About {
@@ -72,7 +74,6 @@ export interface SectionCopy {
 export interface Overview {
   services: SectionCopy;
   process: SectionCopy;
-  clientValue: SectionCopy;
 }
 
 /** A "What We Deliver" offering. */

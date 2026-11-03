@@ -35,16 +35,11 @@ const COMPANY = content as Company;
     <app-navbar [companyName]="data.company.name" [logo]="data.company.logo" />
 
     <main id="main" tabindex="-1" class="focus:outline-none">
-      <!-- Page 1 -->
-      <app-hero [hero]="data.hero" [logo]="data.company.logo" />
+      <!-- Page 1, including Client Value -->
+      <app-hero [hero]="data.hero" [logo]="data.company.logo" [values]="data.clientValue" />
 
-      <!-- Page 2: What We Deliver, How We Work, Client Value -->
-      <app-overview
-        [copy]="data.overview"
-        [services]="data.services"
-        [steps]="data.process"
-        [values]="data.clientValue"
-      />
+      <!-- Page 2: What We Deliver, How We Work -->
+      <app-overview [copy]="data.overview" [services]="data.services" [steps]="data.process" />
 
       <app-about [about]="data.about" />
       <app-contact [contact]="data.contact" />

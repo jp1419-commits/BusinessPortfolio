@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { Hero } from '../../models/company.model';
+import { ClientValue, Hero } from '../../models/company.model';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { BackdropComponent } from '../backdrop/backdrop.component';
 import { IconComponent } from '../icon/icon.component';
 
-/** Page 1: full-screen introduction. */
+/** Page 1: full-screen introduction, including the Client Value points. */
 @Component({
   selector: 'app-hero',
   imports: [NgOptimizedImage, BackdropComponent, IconComponent, RevealDirective],
@@ -13,7 +13,7 @@ import { IconComponent } from '../icon/icon.component';
   template: `
     <section
       id="top"
-      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8"
+      class="relative isolate flex min-h-screen min-h-svh items-center overflow-hidden px-4 pb-28 pt-28 sm:px-6 lg:px-8 compact:pb-20 compact:pt-20"
     >
       <app-backdrop tone="light" belowNav />
 
@@ -29,7 +29,7 @@ import { IconComponent } from '../icon/icon.component';
 
           <h1
             [appReveal]="90"
-            class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl xl:text-6xl"
+            class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl xl:text-6xl compact:mt-4 compact:text-5xl"
           >
             {{ headline().before
             }}<span
@@ -40,12 +40,41 @@ import { IconComponent } from '../icon/icon.component';
 
           <p
             [appReveal]="180"
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl compact:mt-4 compact:text-lg"
           >
             {{ hero().subtitle }}
           </p>
 
-          <div [appReveal]="270" class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <!-- Client Value -->
+          <div [appReveal]="240" class="mt-8 max-w-2xl compact:mt-5">
+            <h2
+              class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-700"
+            >
+              <span
+                aria-hidden="true"
+                class="h-px w-8 bg-gradient-to-r from-primary-500 to-primary-300"
+              ></span>
+              {{ hero().valuesLabel }}
+            </h2>
+            <ul class="mt-3 grid grid-cols-2 gap-2.5">
+              @for (item of values(); track item.title) {
+                <li
+                  class="flex flex-col items-start gap-2 rounded-2xl border border-primary-100 bg-white/80 p-3 shadow-sm shadow-primary-900/5 backdrop-blur-sm sm:flex-row sm:items-center sm:gap-3 sm:p-2.5 sm:pr-4"
+                >
+                  <span
+                    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md shadow-primary-600/25"
+                  >
+                    <app-icon [name]="item.icon" class="h-5 w-5" />
+                  </span>
+                  <span class="text-[13px] font-semibold leading-snug text-ink sm:text-sm">
+                    {{ item.title }}
+                  </span>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <div [appReveal]="300" class="mt-8 flex flex-col gap-4 sm:flex-row compact:mt-6">
             <a href="#contact" class="btn-primary justify-center shadow-lg shadow-primary-600/25">
               Get In Touch
               <app-icon name="arrow-right" class="h-5 w-5" />
@@ -92,7 +121,7 @@ import { IconComponent } from '../icon/icon.component';
         href="#services"
         [appReveal]="600"
         aria-label="Scroll to What We Deliver"
-        class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
+        class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full compact:bottom-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
       >
         <span class="flex h-9 w-6 justify-center rounded-full border-2 border-current pt-1.5">
           <span class="h-2 w-1 rounded-full bg-current motion-safe:animate-scroll-cue"></span>
@@ -105,6 +134,8 @@ import { IconComponent } from '../icon/icon.component';
 export class HeroComponent {
   readonly hero = input.required<Hero>();
   readonly logo = input.required<string>();
+  /** Client Value points shown between the subtitle and the call-to-action buttons. */
+  readonly values = input.required<ClientValue[]>();
 
   /** Splits the title so the `highlight` phrase can be styled on its own. */
   protected readonly headline = computed(() => {

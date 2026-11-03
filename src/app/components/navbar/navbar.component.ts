@@ -15,7 +15,7 @@ import { DOCUMENT, NgOptimizedImage } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
 
 /** Sections the scroll-spy watches; links whose href matches the active one are highlighted. */
-const TRACKED_SECTIONS = ['top', 'services', 'how-we-work', 'client-value', 'about', 'contact'];
+const TRACKED_SECTIONS = ['top', 'services', 'how-we-work', 'about', 'contact'];
 
 /** The header shows until the page has scrolled this far (px); then the floating menu takes over. */
 const HEADER_SCROLL_LIMIT = 120;

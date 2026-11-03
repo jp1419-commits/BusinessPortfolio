@@ -12,11 +12,11 @@ changes. The file is built into the app, so the page shows instantly; edits go l
 | Key | What it controls |
 | --- | --- |
 | `company` | Brand name, footer tagline, logo path |
-| `hero` | Page 1: small label, headline (`highlight` is the blue part), subtitle |
-| `overview` | Page 2 labels and headlines for What We Deliver, How We Work and Client Value |
+| `hero` | Page 1: small label, headline (`highlight` is the blue part), subtitle, and the label above the Client Value points (`valuesLabel`) |
+| `overview` | Page 2 labels and headlines for What We Deliver and How We Work |
 | `services` | What We Deliver cards: title, description, illustration (`systems`, `software` or `operations`), tags |
 | `process` | How We Work steps: title, description, icon |
-| `clientValue` | Client Value statements and their icons |
+| `clientValue` | Client Value statements and their icons, shown on page 1 |
 | `about` | About Us: label, headline, mission, vision, values (with icons) |
 | `contact` | Get In Touch headline and intro, the email and phone card wording (`emailCta`, `phoneCta`), email, phone, location, LinkedIn |
 

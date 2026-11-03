@@ -8,7 +8,8 @@
     "eyebrow": "Systems · Software · Operations & Support",
     "title": "Your IT Solutions & Staffing Partner",
     "highlight": "IT Solutions & Staffing",
-    "subtitle": "We combine IT expertise, the right talent, and operational support to deliver innovative and reliable business solutions."
+    "subtitle": "We combine IT expertise, the right talent, and operational support to deliver innovative and reliable business solutions.",
+    "valuesLabel": "Client Value"
   },
   "overview": {
     "services": {
@@ -19,10 +20,6 @@
     "process": {
       "label": "How We Work",
       "title": "A clear path from problem to handover."
-    },
-    "clientValue": {
-      "label": "Client Value",
-      "title": "What you can count on."
     }
   },
   "about": {

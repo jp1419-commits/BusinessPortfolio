@@ -1,18 +1,17 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { ClientValue, Overview, ProcessStep, Service } from '../../models/company.model';
+import { Overview, ProcessStep, Service } from '../../models/company.model';
 import { BackdropComponent } from '../backdrop/backdrop.component';
-import { ClientValueComponent } from '../client-value/client-value.component';
 import { ProcessComponent } from '../process/process.component';
 import { ServicesComponent } from '../services/services.component';
 
 /**
- * Page 2: What We Deliver, How We Work and Client Value on a dark brand surface.
+ * Page 2: What We Deliver and How We Work on a dark brand surface.
  * On desktop the spacing scales with the viewport height so the page fits one screen;
  * smaller screens stack the blocks and scroll naturally.
  */
 @Component({
   selector: 'app-overview',
-  imports: [BackdropComponent, ServicesComponent, ProcessComponent, ClientValueComponent],
+  imports: [BackdropComponent, ServicesComponent, ProcessComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
@@ -26,14 +25,9 @@ import { ServicesComponent } from '../services/services.component';
           <app-services [copy]="copy().services" [services]="services()" />
           <div
             aria-hidden="true"
-            class="my-14 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:my-[clamp(1rem,3.6vh,2.75rem)] compact:my-3"
+            class="my-14 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:my-[clamp(2rem,6vh,4.5rem)] compact:my-6"
           ></div>
           <app-process [copy]="copy().process" [steps]="steps()" />
-          <div
-            aria-hidden="true"
-            class="my-14 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:my-[clamp(1rem,3.6vh,2.75rem)] compact:my-3"
-          ></div>
-          <app-client-value [copy]="copy().clientValue" [values]="values()" />
         </div>
       </div>
     </div>
@@ -43,5 +37,4 @@ export class OverviewComponent {
   readonly copy = input.required<Overview>();
   readonly services = input.required<Service[]>();
   readonly steps = input.required<ProcessStep[]>();
-  readonly values = input.required<ClientValue[]>();
 }

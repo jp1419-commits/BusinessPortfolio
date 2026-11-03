@@ -128,7 +128,6 @@ export class FooterComponent {
   protected readonly links = [
     { href: '#services', label: 'What We Deliver' },
     { href: '#how-we-work', label: 'How We Work' },
-    { href: '#client-value', label: 'Client Value' },
     { href: '#about', label: 'About Us' },
     { href: '#contact', label: 'Get In Touch' },
   ];
