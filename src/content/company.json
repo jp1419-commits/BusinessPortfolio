@@ -80,19 +80,35 @@
       "icon": "handshake"
     }
   ],
+  "roles": {
+    "label": "Roles We Staff",
+    "title": "The right people for every part of your project.",
+    "intro": "Bring in individual IT SMEs or a complete team, matched to your project.",
+    "groups": [
+      {
+        "title": "Project & analysis",
+        "icon": "clipboard",
+        "roles": ["Technical / IT Project Manager", "IT Business Analyst", "Systems Analyst"]
+      },
+      {
+        "title": "Software development",
+        "icon": "code",
+        "roles": ["Full-Stack Developer", "Front-End Developer", "Back-End Developer", "Mobile Developer", "QA Engineer"]
+      },
+      {
+        "title": "IT operations & support",
+        "icon": "gear",
+        "roles": ["Technical Support Specialist", "System Administrator", "Network Engineer", "Database Administrator", "DevOps / Cloud Engineer"]
+      }
+    ],
+    "more": "Need a role that isn't listed? We'll find the right IT SME for it.",
+    "moreLink": "Tell us who you need"
+  },
   "techStack": {
     "label": "Tech Stack",
     "title": "The right experts for the stack you run.",
-    "intro": "Technologies we deliver and staff for, plus the project managers who lead the work.",
+    "intro": "Technologies and tools we deliver with and staff for.",
     "groups": [
-      {
-        "title": "Technical Project Managers",
-        "icon": "clipboard",
-        "featured": true,
-        "kicker": "Delivery leadership",
-        "description": "Delivery leads who keep scope, timelines and teams on track, from kickoff to handover.",
-        "items": ["Agile / Scrum", "Kanban", "Waterfall & hybrid", "Jira", "Confluence", "Azure DevOps", "MS Project"]
-      },
       {
         "title": "Back end & desktop",
         "icon": "code",
@@ -119,9 +135,9 @@
         "items": ["Microsoft Azure", "AWS", "Google Cloud", "Docker", "Kubernetes", "Git", "Windows Server", "Linux", "Microsoft 365"]
       },
       {
-        "title": "Business systems",
-        "icon": "layers",
-        "items": ["SAP", "Microsoft Dynamics 365", "Odoo", "Salesforce"]
+        "title": "Project delivery",
+        "icon": "clipboard",
+        "items": ["Agile / Scrum", "Kanban", "Waterfall & hybrid", "Jira", "Confluence", "Azure DevOps", "MS Project"]
       }
     ],
     "more": "Don't see your stack? We'll find the right IT SMEs for it.",

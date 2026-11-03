@@ -43,7 +43,7 @@ import { IconComponent } from '../icon/icon.component';
               target="_blank"
               rel="noopener noreferrer"
               [attr.aria-label]="companyInfo().name + ' on LinkedIn'"
-              class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-primary-400/40 hover:bg-primary-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 phone:mt-4 short:mt-3"
+              class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-primary-400/40 hover:bg-primary-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 phone:mt-4 short:hidden"
             >
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path
@@ -131,6 +131,7 @@ export class FooterComponent {
   protected readonly links = [
     { href: '#services', label: 'What We Deliver' },
     { href: '#how-we-work', label: 'How We Work' },
+    { href: '#roles', label: 'Roles We Staff' },
     { href: '#tech-stack', label: 'Tech Stack' },
     { href: '#about', label: 'About Us' },
     { href: '#contact', label: 'Get In Touch' },

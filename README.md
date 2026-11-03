@@ -16,7 +16,8 @@ changes. The file is built into the app, so the page shows instantly; edits go l
 | `overview` | Page 2 labels and headlines for What We Deliver and How We Work |
 | `services` | What We Deliver cards: title, description, illustration (`systems`, `software` or `operations`), tags |
 | `process` | How We Work steps: title, description, icon |
-| `techStack` | Tech Stack page: label, headline, intro, the groups (title, icon, technologies; `featured` marks the highlighted Technical Project Managers card, with its `kicker` and `description`), and the closing line for anything not listed (`more`, `moreLink`) |
+| `roles` | Roles We Staff page: label, headline, intro, the role groups (title, icon, roles), and the closing line for roles not listed (`more`, `moreLink`) |
+| `techStack` | Tech Stack page: label, headline, intro, the technology groups (title, icon, items), and the closing line for anything not listed (`more`, `moreLink`) |
 | `clientValue` | Client Value statements and their icons, shown on page 1 |
 | `about` | About Us: label, headline, mission, vision, values (with icons) |
 | `contact` | Get In Touch headline and intro, the email and phone card wording (`emailCta`, `phoneCta`), email, phone, location, LinkedIn |
@@ -60,11 +61,11 @@ preview deployments.
 
 ## Project structure
 
-- `src/app/components/`: one component per page section (hero, overview, tech-stack, about, contact, navbar,
-  footer), plus shared pieces (`backdrop` for section backgrounds, `icon`, `illustration`)
+- `src/app/components/`: one component per page section (hero, overview, roles, tech-stack, about, contact,
+  navbar, footer), plus shared pieces (`backdrop` for section backgrounds, `icon`, `illustration`)
 - `src/app/directives/reveal.directive.ts`: the fade-in-on-scroll animation
-- `src/app/directives/carousel.directive.ts`: the sideways swipe carousels on phones (What We Deliver, Tech
-  Stack) and their position dots
+- `src/app/directives/carousel.directive.ts`: the sideways swipe carousels on phones (What We Deliver, Roles
+  We Staff, Tech Stack) and their position dots
 - `src/app/services/page-scroll.service.ts`: Reels-style page flipping. The slightest swipe, mouse wheel or
   trackpad gesture, or arrow key moves exactly one page, and in-page links open the page that contains their
   section. The pages scroll inside the app root (`.page-scroller` in `src/styles.css`), so phone browsers

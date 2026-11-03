@@ -14,6 +14,7 @@ import { StructuredDataService } from './services/structured-data.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { OverviewComponent } from './components/overview/overview.component';
+import { RolesComponent } from './components/roles/roles.component';
 import { TechStackComponent } from './components/tech-stack/tech-stack.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -28,6 +29,7 @@ const COMPANY = content as Company;
     NavbarComponent,
     HeroComponent,
     OverviewComponent,
+    RolesComponent,
     TechStackComponent,
     AboutComponent,
     ContactComponent,
@@ -53,6 +55,7 @@ const COMPANY = content as Company;
       <!-- Page 2: What We Deliver, How We Work -->
       <app-overview [copy]="data.overview" [services]="data.services" [steps]="data.process" />
 
+      <app-roles [roles]="data.roles" />
       <app-tech-stack [stack]="data.techStack" />
 
       <app-about [about]="data.about" />
